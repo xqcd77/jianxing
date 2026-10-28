@@ -1,0 +1,50 @@
+{
+  "suite": "bankflow-lite48-v1-20261018",
+  "cases": 48,
+  "domains": {
+    "智能转账": 5,
+    "账单分析": 3,
+    "理财操作": 4,
+    "卡片管理": 4,
+    "订阅代扣": 3,
+    "跨场景联动": 3,
+    "外部金融知识与公开信息": 6,
+    "服务边界与安全": 4,
+    "跨业务协作与统一资金": 8,
+    "金融深度研究": 8
+  },
+  "difficulty": {
+    "easy": 9,
+    "medium": 16,
+    "hard": 15,
+    "expert": 8
+  },
+  "families": 46,
+  "resolution_targets": {
+    "fulfilled": 43,
+    "condition_explained": 3,
+    "capability_gap": 1,
+    "safely_declined": 1
+  },
+  "completion_targets": {
+    "execute": 19,
+    "prepare": 5,
+    "answer": 13,
+    "boundary": 2,
+    "research": 9
+  },
+  "provenance": {
+    "authored_diagnostic": 42,
+    "observed_failure_regression": 6
+  },
+  "public_fixture_cases": 2,
+  "semantic_requirements": 226,
+  "user_language_turns": 61,
+  "measured_business_forms": 0,
+  "human_labels": 0,
+  "unseen_holdout": false,
+  "diagnostic_only": true,
+  "dataset_hash": "ff2c592532d9e2576f68203bebd37177de8d0fb90f7f2df096fd8bfbe21ca5db",
+  "public_hash": "3e02893e580a77c54b4f0dced71b0d0337b00f4399161cdb4a0ab3a0ffa4b6fc",
+  "gold_hash": "ff2c592532d9e2576f68203bebd37177de8d0fb90f7f2df096fd8bfbe21ca5db"
+}

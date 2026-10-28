@@ -1,0 +1,41 @@
+/* A living ink landscape. All decorative layers stay outside hit testing. */
+.shell { position: relative; z-index: 1; }
+.paper-atmosphere { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.ink-wash { position: absolute; display: block; width: 70vw; height: 70vh; border-radius: 50%; }
+.wash-jade { top: -18vh; right: -18vw; background: radial-gradient(ellipse, #b6cdb52b, #e1e7d413 55%, transparent 72%); animation: paper-breath 18s ease-in-out infinite alternate; }
+.wash-gold { bottom: -28vh; left: 22vw; background: radial-gradient(ellipse, #d9c49322, transparent 68%); animation: paper-breath 23s ease-in-out -8s infinite alternate-reverse; }
+.hero { isolation: isolate; }
+.hero-copy { position: relative; z-index: 2; }
+.landscape { overflow: visible; pointer-events: none; }
+.landscape .mountain { stroke-dasharray: none; stroke-dashoffset: 0; }
+.landscape .rear { animation: mountain-breath 16s ease-in-out infinite alternate; }
+.landscape .middle { animation: mountain-breath 19s ease-in-out -5s infinite alternate-reverse; }
+.landscape .front { animation: mountain-breath 21s ease-in-out -9s infinite alternate; }
+.sun-disc, .sun-halo { transform-origin: 370px 42px; animation: sun-breath 12s ease-in-out infinite alternate; }
+.sun-halo { animation-delay: -4s; }
+.mountain-mist { filter: blur(4px); }
+.mist-one { animation: mist-drift 14s ease-in-out infinite alternate; }
+.mist-two { animation: mist-drift 18s ease-in-out -6s infinite alternate-reverse; }
+.water-ripple { stroke-dasharray: 26 38; animation: water-flow 8s linear infinite; opacity: .45; }
+.message.loading .assistant-mark { animation: ink-thinking 1.8s ease-in-out infinite; }
+.message.loading > div { animation: thinking-breath 1.8s ease-in-out infinite; }
+#messages { max-height: 400px; scroll-padding: 16px; }
+.message { font-size: 13px; line-height: 1.85; }
+.incoming-card { margin-top: 14px; padding: 15px 17px; border: 1px solid #cedaca; border-radius: 9px; background: linear-gradient(135deg, #edf3e7, #faf9ef); max-width: 390px; }
+.incoming-caption { display: block; font-size: 10px; letter-spacing: 1px; color: #718564; }
+.incoming-card > strong { display: block; font: 29px/1.5 var(--serif); color: #42623d; margin: 6px 0; font-variant-numeric: tabular-nums; }
+.incoming-card p { font-size: 10px; line-height: 1.8; color: #7d8d70; }
+.incoming-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 13px; }
+.incoming-actions button { font-size: 11px; }
+.incoming-result { color: #56784a; font-size: 11px; }
+.incoming-card.settled { border-color: #e0e5d8; background: #f6f8ef; }
+.effects-paused *, .effects-paused *::before, .effects-paused *::after { animation-play-state: paused !important; }
+@keyframes paper-breath { from { transform: translate(-2%, 0) scale(.96); opacity: .55; } to { transform: translate(4%, 5%) scale(1.08); opacity: 1; } }
+@keyframes mountain-breath { from { transform: translateY(-1px); opacity: .6; } to { transform: translateY(2px); opacity: .95; } }
+@keyframes sun-breath { from { transform: scale(.96); opacity: .2; } to { transform: scale(1.06); opacity: .4; } }
+@keyframes mist-drift { from { transform: translateX(-32px); opacity: .3; } to { transform: translateX(28px); opacity: .9; } }
+@keyframes water-flow { to { stroke-dashoffset: -64; } }
+@keyframes ink-thinking { 50% { background: #c9d9ba; box-shadow: 0 0 0 4px #d7e1c944; } }
+@keyframes thinking-breath { 50% { opacity: .55; } }
+@media(max-width:500px) { #messages { max-height: 420px; } .message { font-size: 12px; } .incoming-card { padding: 13px; } .incoming-card > strong { font-size: 25px; } }
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

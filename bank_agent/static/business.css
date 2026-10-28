@@ -1,0 +1,39 @@
+/* Six business families, with a quiet second level and focused forms. */
+.scenarios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.business-category { min-height: 94px; transition: border-color .2s, background .2s, transform .2s; }
+.business-category.selected { border-color: #8ca98a; background: #edf2e8; box-shadow: inset 0 -2px #779774; }
+.business-category b { font: 16px var(--serif); letter-spacing: 1px; }
+.business-category small { line-height: 1.8; max-width: 90%; }
+.business-panel { margin-top: 14px; padding: 19px; border: 1px solid #dce4d4; border-radius: 9px; background: linear-gradient(125deg,#fbfcf6,#f2f5ec); animation: arrive .25s ease; }
+.business-panel-head { display: flex; justify-content: space-between; align-items: start; gap: 14px; margin-bottom: 15px; }
+.business-panel-head h3 { font: 19px var(--serif); color: #526f50; }
+.business-panel-head p { font-size: 10px; color: #819176; margin-top: 6px; line-height: 1.8; }
+.business-panel-head button { font-size: 10px; background: transparent; white-space: nowrap; }
+.business-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.business-option { text-align: left; padding: 13px 14px; background: #fffefa; border-color: #e2e7da; min-width: 0; }
+.business-option-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.business-option strong { font-size: 12px; font-weight: 500; }
+.business-arrow { color: #99ac8c; font-size: 14px; }
+.business-option small { display: block; font-size: 10px; line-height: 1.85; color: #839277; margin: 7px 0 10px; }
+.business-permission { font-size: 9px; color: #78946c; }
+.business-permission.YELLOW,.business-permission.DYNAMIC { color: #aa9569; }
+.business-permission.RED { color: #ac7b6b; }
+.business-intro { font-size: 12px; line-height: 1.9; color: #718467; }
+.business-form-note { margin-top: 11px; padding: 10px 12px; border-radius: 5px; background: #f0f4e9; font-size: 10px; line-height: 1.8; color: #819474; }
+.business-fields { margin-top: 5px; }
+.business-fields fieldset { margin: 16px 0; padding: 0; border: 0; min-width: 0; font-size: 11px; color: #708960; }
+.business-fields legend { padding: 0; }
+.business-fields .full-width { grid-column: 1/-1; }
+.business-checkboxes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+dialog .business-check { display: flex; align-items: center; margin: 0; gap: 4px; padding: 8px 10px; border: 1px solid #e3e8da; border-radius: 5px; }
+dialog .business-check input { margin: 0; }
+dialog .risk-question { margin: 12px 0; padding: 12px; background: #f5f7ef; border-radius: 6px; }
+.business-error:empty { display: none; }
+.business-back{grid-column:1/-1;justify-self:start;background:transparent;border:0;color:#78946c;font-size:11px;padding:3px 0 8px}
+.business-record{margin:13px 0;padding:14px;border:1px solid #e2e7da;border-radius:7px;background:#fafbf5}
+.business-record>strong{font-size:12px;font-weight:550;line-height:1.8;overflow-wrap:anywhere}
+.business-record p{font-size:10px;line-height:1.9;margin-top:6px}.business-record-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.business-record-actions button{font-size:10px}
+.business-fields [hidden]{display:none!important}
+@media(max-width:1100px) { .scenarios { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:500px) { .business-category { min-height: 90px; padding: 12px; } .business-category b { font-size: 14px; } .business-panel { padding: 14px; } .business-options { grid-template-columns: 1fr; } .business-option { padding: 12px; } .business-fields label { min-width: 0; } .business-checkboxes { gap: 7px; } }

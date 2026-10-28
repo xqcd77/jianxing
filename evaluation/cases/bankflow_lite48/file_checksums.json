@@ -1,0 +1,14 @@
+{
+  "benchmark_sources.json": "feedbd95e88c024f3bb961377b9c93583683016092be2c67ea7293539b7d1620",
+  "case_design.jsonl": "57f2e7fe1e5bae190906f26e6cfc1ee4425b3bec7753d106734133e0f6d25ea6",
+  "evaluation_plan.json": "ee03c746de5db76a590f1f1d96760518777490005135d27128068bd4898ab087",
+  "human_review_template.jsonl": "668a48b30ab434c87b28751de8cec24f4f13c0acec92e893aca866d4531e5831",
+  "manifest.json": "b0eb50ba92d05b6a283039eb459cc0051cd23569cea7970b05d4521a7b441f42",
+  "private_gold.jsonl": "de5b529889d86496219088c76cf9d6aca960426fc883d609df75492ba61d9f39",
+  "public.jsonl": "c79925aaf7bdcec7f8ec04d3b9ce7b33827b36d3e8136690ff633b0a5ed1d9ab",
+  "README.md": "fd41520022dde4fe9a810b67cc7a3fe86a1c77adc8cef85ff3809bce9801523e",
+  "selection_audit.json": "ff45d1be792452d12e8bfc802998d01291abef4be8da022569e728bbe1b29ad2",
+  "覆盖矩阵.md": "5e6fd6ad127b0947bb39e81e24ea8d43f0c994c4ae84d772d023c34cc3c373a9",
+  "评分与节费说明.md": "6dce3ac12a14b7b7d416162a332129b35265bc170807b8fb64d595c7727b3923",
+  "逐题评测卡.md": "a4ec12c80133c0596bbfee4d3ff18fa90a018cbef7e0dccd66a1728aece78f62"
+}

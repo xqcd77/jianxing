@@ -1,0 +1,50 @@
+[project]
+name = "jianxing-bank-agent"
+version = "0.1.0"
+description = "Jianxing: banking agents with FastAPI, Agents SDK, Chroma and durable workflows"
+requires-python = ">=3.12"
+
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+  "langgraph>=1.0,<2",
+  "langgraph-checkpoint-sqlite>=3,<4",
+  "sqlalchemy>=2.0,<3",
+  "pydantic>=2.10,<3",
+  "httpx>=0.28,<1",
+  "openai-agents>=0.24,<0.25",
+  "chromadb>=1.5.9,<1.6",
+  "pyotp>=2.9,<3",
+  "cryptography>=44",
+  "python-dotenv>=1.0,<2",
+  "numpy>=1.26,<3",
+  "fastembed>=0.7,<1",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bank_agent*"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.12", "pytest-cov>=6,<8"]
+
+[tool.setuptools.package-data]
+bank_agent = ["static/*", "static/fonts/*", "static/providers/*"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.12", "pytest-cov>=6,<8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["live_model: calls the configured external model (opt-in)", "embedding_model: verifies a prepared local semantic model (opt-in)"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

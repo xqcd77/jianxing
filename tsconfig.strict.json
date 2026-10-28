@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {"checkJs": false, "strict": true, "noImplicitAny": true, "useUnknownInCatchVariables": true},
+  "include": ["bank_agent/static/api.js", "bank_agent/static/state.js", "bank_agent/static/contracts.js", "bank_agent/static/*.d.ts"]
+}

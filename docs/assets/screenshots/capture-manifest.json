@@ -1,0 +1,198 @@
+{
+  "captured_at": "2026-10-24T11:23:38.952Z",
+  "kind": "actual-local-demo-ui",
+  "model_mode": "demo",
+  "banking_api_mocked": false,
+  "external_public_sources": "fixed ETF fixtures in serve_upgrade_fixture.py",
+  "financial_data": "synthetic, isolated fresh account",
+  "device_scale_factor": 1,
+  "screenshots": [
+    {
+      "file": "01-login.webp",
+      "caption": "动态登录：东方绿金、悬浮卡片与流光按钮",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": null,
+      "width": 1440,
+      "height": 1040,
+      "bytes": 571670,
+      "sha256": "c77448014629721f749d50dd8b9ff23da292d86ed5021be72419bd20ff49bc10"
+    },
+    {
+      "file": "02-workspace.webp",
+      "caption": "工作台：余额、六类业务、对话与任务面板",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": null,
+      "width": 1440,
+      "height": 1597,
+      "bytes": 911080,
+      "sha256": "139087580acc162ad56775ebab1c1b6617e6c7db21a935bf93ee8d5ae9b89eb5"
+    },
+    {
+      "file": "03-chat-progress.webp",
+      "caption": "公开执行步骤：实时进度、流动波浪与停止入口",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": null,
+      "width": 855,
+      "height": 530,
+      "bytes": 93998,
+      "sha256": "16e2d9f8cffcab22502e4b3ab25f4db8b8baf20ed275b10bfc227b812a8cb921"
+    },
+    {
+      "file": "04-multiple-goals.webp",
+      "caption": "复合需求：两笔转账与剩余资金理财分别保留",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "WAIT_CONFIRM",
+      "width": 807,
+      "height": 415,
+      "bytes": 106784,
+      "sha256": "bd8651f401e34f4c22424c67983ab0206603b16b9a4a0286587d696a4bf24498"
+    },
+    {
+      "file": "05-verification.webp",
+      "caption": "大额转账：核对金额、资金影响与一次性验证码",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "WAIT_MFA",
+      "width": 650,
+      "height": 616,
+      "bytes": 33472,
+      "sha256": "26bcb41ac548bf302e622364ac20adc8af3594b0a45e120853e7f4a144ec70dc"
+    },
+    {
+      "file": "06-risk-assessment.webp",
+      "caption": "适当性前置条件：直接进入测评，完成后返回原计划",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "FAILED",
+      "width": 650,
+      "height": 850,
+      "bytes": 21514,
+      "sha256": "765e956e53a3147d245b78b3763348c1cc609ed4164e4d73d4b8f499b5589c3a"
+    },
+    {
+      "file": "07-research.webp",
+      "caption": "研究报告：结论、现金流、产品条件与证据入口",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "FAILED",
+      "width": 855,
+      "height": 1306,
+      "bytes": 285538,
+      "sha256": "5115589f4227cdd35088989eb7d3db806722770338d5d31f64a6c2f541cf0b08"
+    },
+    {
+      "file": "08-bills.webp",
+      "caption": "账单分析：收入、消费、退款与转账独立统计",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "COMPLETED",
+      "width": 807,
+      "height": 456,
+      "bytes": 111882,
+      "sha256": "4745872d185136290ee506cfb838aa4fb1308488ce38cbfeaa69a05cfbcf4adb"
+    },
+    {
+      "file": "09-wealth.webp",
+      "caption": "理财比较：风险、起购、锁定期与当前申购条件",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "COMPLETED",
+      "width": 807,
+      "height": 387,
+      "bytes": 110458,
+      "sha256": "940ce1233256226e8070d657955d5c1121ebedab8eb3a52f71788dcad9c72a7b"
+    },
+    {
+      "file": "10-cards.webp",
+      "caption": "卡片管理：支付限额、类别限制与银行回执",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "COMPLETED",
+      "width": 807,
+      "height": 390,
+      "bytes": 97874,
+      "sha256": "b5726ac8c20ced1372e06597b5fb77bcf81120253ccac1d321e5a58f01cb0fdc"
+    },
+    {
+      "file": "11-subscriptions.webp",
+      "caption": "订阅管理：银行停扣与商户合同分别展示",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "COMPLETED",
+      "width": 807,
+      "height": 342,
+      "bytes": 103122,
+      "sha256": "5d4688ff0b0a0bbdc2e524ae406db648c42b23359be186d28dd5f33515dc1292"
+    },
+    {
+      "file": "12-allocation.webp",
+      "caption": "跨场景资金安排：预算预留、转账、申购与任务依赖",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": "WAIT_CONFIRM",
+      "width": 807,
+      "height": 550,
+      "bytes": 103508,
+      "sha256": "a81a79c15f53657a495ad12837b844479dda8553aedc272ad7514128e9c95772"
+    },
+    {
+      "file": "13-etf-information.webp",
+      "caption": "ETF公开资料：来源、候选与未接入交易通道的说明",
+      "viewport": {
+        "width": 1440,
+        "height": 1040
+      },
+      "status": null,
+      "recaptured_at": "2026-10-24T11:24:41.724Z",
+      "width": 855,
+      "height": 636,
+      "bytes": 120426,
+      "sha256": "788e51d8cc1cd03195cf00e0f89d90917c4000f202dbcd9ebf619142c570eea4"
+    },
+    {
+      "file": "14-mobile.webp",
+      "caption": "手机端：工作台布局、余额与六类业务",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "status": null,
+      "width": 390,
+      "height": 2342,
+      "bytes": 452880,
+      "sha256": "ad4dee51190ec4decccd387ff8433d5a0ff18dbc31a12f9ef0ef068d0ae67c57"
+    }
+  ],
+  "page_errors": [],
+  "encoding": "lossless WebP",
+  "count": 14,
+  "image_changes": "Format conversion only; no UI text, financial state or results rewritten."
+}

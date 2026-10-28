@@ -1,0 +1,62 @@
+name: jianxing
+services:
+  web:
+    build: .
+    image: jianxing-bank:local
+    env_file: .env
+    environment:
+      BANK_DATA_DIR: /app/.data
+      BANK_SCHEDULER_MODE: external
+      BANK_MEMORY_EMBEDDING: ${BANK_CONTAINER_MEMORY_EMBEDDING:-lexical}
+      BANK_MEMORY_BACKEND: chroma
+      BANK_CHROMA_URL: http://chroma:8000
+      BANK_CHAT_WORKER_MODE: external
+    depends_on: [chroma]
+    command: ["uvicorn", "bank_agent.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["bank-data:/app/.data"]
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  scheduler:
+    image: jianxing-bank:local
+    build: .
+    env_file: .env
+    environment:
+      BANK_DATA_DIR: /app/.data
+      BANK_SCHEDULER_MODE: disabled
+      BANK_MEMORY_EMBEDDING: lexical
+      BANK_MEMORY_BACKEND: chroma
+      BANK_CHROMA_URL: http://chroma:8000
+    depends_on: [chroma]
+    command: ["python", "-m", "bank_agent.scheduler"]
+    volumes: ["bank-data:/app/.data"]
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  chroma:
+    image: chromadb/chroma:1.5.9
+    environment:
+      ANONYMIZED_TELEMETRY: "False"
+    volumes: ["chroma-data:/data"]
+    restart: unless-stopped
+  worker:
+    image: jianxing-bank:local
+    build: .
+    env_file: .env
+    environment:
+      BANK_DATA_DIR: /app/.data
+      BANK_CHAT_WORKER_MODE: embedded
+      BANK_SCHEDULER_MODE: disabled
+      BANK_MEMORY_EMBEDDING: ${BANK_CONTAINER_MEMORY_EMBEDDING:-lexical}
+      BANK_MEMORY_BACKEND: chroma
+      BANK_CHROMA_URL: http://chroma:8000
+    depends_on: [chroma]
+    command: ["python", "-m", "bank_agent.worker"]
+    volumes: ["bank-data:/app/.data"]
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  bank-data:
+  chroma-data:

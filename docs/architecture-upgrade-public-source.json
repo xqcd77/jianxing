@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-24T03:02:16.810689+00:00",
+  "duration_seconds": 3.721,
+  "mode": "read_only_live_official_source",
+  "source_status": "verified_product_fields",
+  "sources": [
+    {
+      "title": "嘉实基金官方产品目录",
+      "url": "https://www.jsfund.cn/Services/cn/jsp/product/index.jsp?SiteID=1",
+      "fetched_at": "2026-10-24T03:02:15.049957+00:00"
+    },
+    {
+      "title": "嘉实沪深300ETF官网资料",
+      "url": "https://www.jsfund.cn/izenportal/service/fundinfo/getRateFund?fundcode=159919",
+      "fetched_at": "2026-10-24T03:02:16.805705+00:00"
+    }
+  ],
+  "candidates": [
+    {
+      "code": "159919",
+      "management_fee_pct": "0.15",
+      "custody_fee_pct": "0.05",
+      "source_url": "https://www.jsfund.cn/izenportal/service/fundinfo/getRateFund?fundcode=159919",
+      "source_sha256": "c2053a459dbe0be278363b9798ce81cf0165557e11bec1f42c69eecb47e4671f",
+      "fetched_at": "2026-10-24T03:02:16.805705+00:00",
+      "condition_check": {
+        "status": "needs_verification",
+        "passed_checks": [],
+        "missing": [
+          "用户风险承受等级",
+          "计划投资期限",
+          "购买渠道",
+          "最低定投金额",
+          "渠道是否支持按金额定投"
+        ],
+        "exclusion_reasons": [],
+        "financial_operations_executed": false
+      }
+    }
+  ],
+  "financial_operations_executed": false
+}

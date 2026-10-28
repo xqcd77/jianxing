@@ -1,0 +1,2805 @@
+{
+  "suite": "finservicebench-64-v3-task-clarity",
+  "comparison": {
+    "design": {
+      "version": "bankflow-architecture-v1",
+      "seed": 20261017,
+      "definitions": {
+        "S_AGENT": "统一领域提议＋单通才研究角色、单轮完整取证；共用约束解析与安全网关",
+        "M_AGENT": "六领域规则提议＋双研究角色、单轮完整取证；与当前C比较证据策略",
+        "C": "当前完整系统：六领域＋双角色定向补查＋共享记忆"
+      },
+      "interventions": {
+        "S_AGENT": {
+          "domain_proposals": "unified_rules",
+          "research_decision_roles": "one_generalist",
+          "evidence": "complete_first_pass",
+          "research_rounds": 1
+        },
+        "M_AGENT": {
+          "domain_proposals": "six_domain_rules",
+          "research_decision_roles": "bills_and_wealth",
+          "evidence": "complete_first_pass",
+          "research_rounds": 1
+        },
+        "C": {
+          "domain_proposals": "six_domain_rules",
+          "research_decision_roles": "bills_and_wealth",
+          "evidence": "initial_then_bounded_targeted",
+          "research_rounds": "configured_maximum"
+        }
+      },
+      "research_subset": [
+        "bills_duplicate_research",
+        "bills_cashflow_stress",
+        "wealth_missing_terms",
+        "wealth_liquidity_deadline",
+        "cross_research_readonly",
+        "safety_source_injection"
+      ],
+      "shared": [
+        "model_and_per_call_budget",
+        "typed_constraint_parser",
+        "tool_capability_set",
+        "bank_permissions_and_rules",
+        "verifier_and_report_renderer",
+        "memory_strategy",
+        "initial_financial_fixtures",
+        "per_episode_model_call_ceiling"
+      ],
+      "scope": "single versus split research decision roles; not one total LLM call or unconstrained autonomous agents",
+      "actual_compute_equalized": false,
+      "evidence_difference_intentional": "one_pass_receives_all_evidence; C_can_retrieve_it_in_bounded_followups",
+      "quality_dependency": "verified claims and most report text are deterministic in all arms; role effects may be limited"
+    },
+    "trials": 1,
+    "cases_per_arm": 64,
+    "research_cases": [
+      "bills_cashflow_stress",
+      "bills_duplicate_research",
+      "cross_research_readonly",
+      "safety_source_injection",
+      "wealth_liquidity_deadline",
+      "wealth_missing_terms"
+    ],
+    "arms": {
+      "S_AGENT": {
+        "all": {
+          "expected_handling": {
+            "expected": 64,
+            "observed": 64,
+            "passed": 50,
+            "failed": 12,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.78125,
+            "pass_rate_upper_bound": 0.8125
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 64,
+            "unknown": 0
+          },
+          "no_answer_count": 3,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 3,
+          "business_completion": {
+            "requested": 25,
+            "fulfilled": 14
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 4.4262,
+              "n": 61
+            },
+            "actionability": {
+              "mean": 4.4262,
+              "n": 61
+            },
+            "clarity": {
+              "mean": 4.1639,
+              "n": 61
+            },
+            "banking_correctness": {
+              "mean": 4.4545,
+              "n": 55
+            },
+            "evidence_reasoning": {
+              "mean": 4.4444,
+              "n": 18
+            }
+          },
+          "judge_valid": 61,
+          "judge_error": 3,
+          "observed_statuses": {
+            "passed": 50,
+            "failed": 12,
+            "unresolved": 2
+          },
+          "failure_modes": {
+            "other": 4,
+            "lost_context": 4,
+            "state_assertion_or_runtime_failure": 4,
+            "no_answer": 3,
+            "wrong_intent": 3,
+            "dead_end": 3,
+            "wrong_financial_fact": 3,
+            "unsupported_claim": 3,
+            "unnecessary_clarification": 2
+          },
+          "hard_checks": {
+            "passed": 60,
+            "expected": 64,
+            "rate": 0.9375
+          },
+          "goal_fulfilled": 37,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 64,
+              "p50": 4070.0,
+              "p95": 24167.75,
+              "max": 54797.0
+            },
+            "api_service_ms": {
+              "n": 64,
+              "p50": 3247.305,
+              "p95": 13455.614,
+              "max": 17902.42
+            },
+            "external_model_calls_known": 62,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 48,
+            "memory_backends": {
+              "fastembed": 64
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 351914,
+                "missing_records": 0,
+                "complete_total": 351914
+              },
+              "completion_tokens": {
+                "known_sum": 59803,
+                "missing_records": 0,
+                "complete_total": 59803
+              },
+              "total_tokens": {
+                "known_sum": 411717,
+                "missing_records": 0,
+                "complete_total": 411717
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 7,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 1,
+            "mean_unique_evidence": 11.285714285714286
+          },
+          "model_calls_by_role": {
+            "planner": 44,
+            "supervisor": 11,
+            "generalist": 7
+          },
+          "model_call_errors": 3
+        },
+        "research": {
+          "expected_handling": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 1,
+            "failed": 3,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.16666666666666666,
+            "pass_rate_upper_bound": 0.5
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 6,
+            "unknown": 0
+          },
+          "no_answer_count": 1,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 0,
+          "business_completion": {
+            "requested": 0,
+            "fulfilled": 0
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 3,
+              "n": 4
+            },
+            "banking_correctness": {
+              "mean": 3.5,
+              "n": 4
+            },
+            "evidence_reasoning": {
+              "mean": 3.25,
+              "n": 4
+            },
+            "actionability": {
+              "mean": 3,
+              "n": 4
+            },
+            "clarity": {
+              "mean": 3.25,
+              "n": 4
+            }
+          },
+          "judge_valid": 4,
+          "judge_error": 2,
+          "observed_statuses": {
+            "passed": 1,
+            "failed": 3,
+            "unresolved": 2
+          },
+          "failure_modes": {
+            "state_assertion_or_runtime_failure": 1,
+            "no_answer": 1,
+            "wrong_intent": 2,
+            "dead_end": 1,
+            "wrong_financial_fact": 1,
+            "unsupported_claim": 1,
+            "lost_context": 1
+          },
+          "hard_checks": {
+            "passed": 5,
+            "expected": 6,
+            "rate": 0.8333333333333334
+          },
+          "goal_fulfilled": 1,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 6,
+              "p50": 25132.5,
+              "p95": 47906.25,
+              "max": 54797.0
+            },
+            "api_service_ms": {
+              "n": 6,
+              "p50": 517.275,
+              "p95": 901.298,
+              "max": 1022.48
+            },
+            "external_model_calls_known": 13,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 6,
+            "memory_backends": {
+              "fastembed": 6
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 46968,
+                "missing_records": 0,
+                "complete_total": 46968
+              },
+              "completion_tokens": {
+                "known_sum": 29033,
+                "missing_records": 0,
+                "complete_total": 29033
+              },
+              "total_tokens": {
+                "known_sum": 76001,
+                "missing_records": 0,
+                "complete_total": 76001
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 5,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 1,
+            "mean_unique_evidence": 11
+          },
+          "model_calls_by_role": {
+            "supervisor": 8,
+            "generalist": 5
+          },
+          "model_call_errors": 2
+        },
+        "domains": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 6,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.75
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 5,
+            "failed": 2,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.625,
+            "pass_rate_upper_bound": 0.75
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 6,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8571428571428571,
+            "pass_rate_upper_bound": 0.8571428571428571
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 0.875
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 1.0
+          }
+        }
+      },
+      "M_AGENT": {
+        "all": {
+          "expected_handling": {
+            "expected": 64,
+            "observed": 64,
+            "passed": 48,
+            "failed": 10,
+            "pending_or_unresolved": 6,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.84375
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 64,
+            "unknown": 0
+          },
+          "no_answer_count": 4,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 3,
+          "business_completion": {
+            "requested": 25,
+            "fulfilled": 12
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 4.3448,
+              "n": 58
+            },
+            "actionability": {
+              "mean": 4.3966,
+              "n": 58
+            },
+            "clarity": {
+              "mean": 4.1034,
+              "n": 58
+            },
+            "banking_correctness": {
+              "mean": 4.5192,
+              "n": 52
+            },
+            "evidence_reasoning": {
+              "mean": 4.4444,
+              "n": 18
+            }
+          },
+          "judge_valid": 58,
+          "judge_error": 6,
+          "observed_statuses": {
+            "passed": 48,
+            "failed": 10,
+            "unresolved": 6
+          },
+          "failure_modes": {
+            "lost_context": 3,
+            "state_assertion_or_runtime_failure": 4,
+            "no_answer": 4,
+            "wrong_intent": 3,
+            "dead_end": 2,
+            "unsupported_claim": 2,
+            "other": 4,
+            "wrong_financial_fact": 1,
+            "unnecessary_clarification": 4
+          },
+          "hard_checks": {
+            "passed": 60,
+            "expected": 64,
+            "rate": 0.9375
+          },
+          "goal_fulfilled": 36,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 64,
+              "p50": 4195.5,
+              "p95": 33517.65,
+              "max": 59547.0
+            },
+            "api_service_ms": {
+              "n": 64,
+              "p50": 3543.06,
+              "p95": 13749.934,
+              "max": 37831.39
+            },
+            "external_model_calls_known": 66,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 48,
+            "memory_backends": {
+              "fastembed": 64
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 351355,
+                "missing_records": 0,
+                "complete_total": 351355
+              },
+              "completion_tokens": {
+                "known_sum": 76082,
+                "missing_records": 0,
+                "complete_total": 76082
+              },
+              "total_tokens": {
+                "known_sum": 427437,
+                "missing_records": 0,
+                "complete_total": 427437
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 7,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 1,
+            "mean_unique_evidence": 11.285714285714286
+          },
+          "model_calls_by_role": {
+            "planner": 44,
+            "supervisor": 9,
+            "bills": 7,
+            "wealth": 6
+          },
+          "model_call_errors": 1
+        },
+        "research": {
+          "expected_handling": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 2,
+            "failed": 2,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.3333333333333333,
+            "pass_rate_upper_bound": 0.6666666666666666
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 6,
+            "unknown": 0
+          },
+          "no_answer_count": 1,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 0,
+          "business_completion": {
+            "requested": 0,
+            "fulfilled": 0
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 3,
+              "n": 4
+            },
+            "banking_correctness": {
+              "mean": 3.5,
+              "n": 4
+            },
+            "evidence_reasoning": {
+              "mean": 3,
+              "n": 4
+            },
+            "actionability": {
+              "mean": 3.25,
+              "n": 4
+            },
+            "clarity": {
+              "mean": 3,
+              "n": 4
+            }
+          },
+          "judge_valid": 4,
+          "judge_error": 2,
+          "observed_statuses": {
+            "passed": 2,
+            "failed": 2,
+            "unresolved": 2
+          },
+          "failure_modes": {
+            "state_assertion_or_runtime_failure": 1,
+            "no_answer": 1,
+            "wrong_intent": 2,
+            "dead_end": 1,
+            "unsupported_claim": 1,
+            "other": 1,
+            "lost_context": 1
+          },
+          "hard_checks": {
+            "passed": 5,
+            "expected": 6,
+            "rate": 0.8333333333333334
+          },
+          "goal_fulfilled": 2,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 6,
+              "p50": 29468.5,
+              "p95": 57820.25,
+              "max": 59547.0
+            },
+            "api_service_ms": {
+              "n": 6,
+              "p50": 590.43,
+              "p95": 1301.602,
+              "max": 1321.2
+            },
+            "external_model_calls_known": 16,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 6,
+            "memory_backends": {
+              "fastembed": 6
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 46643,
+                "missing_records": 0,
+                "complete_total": 46643
+              },
+              "completion_tokens": {
+                "known_sum": 41105,
+                "missing_records": 0,
+                "complete_total": 41105
+              },
+              "total_tokens": {
+                "known_sum": 87748,
+                "missing_records": 0,
+                "complete_total": 87748
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 5,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 1,
+            "mean_unique_evidence": 11
+          },
+          "model_calls_by_role": {
+            "supervisor": 7,
+            "bills": 5,
+            "wealth": 4
+          },
+          "model_call_errors": 1
+        },
+        "domains": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 0.875
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 0.875
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 5,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.7142857142857143,
+            "pass_rate_upper_bound": 0.7142857142857143
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 8,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 3,
+            "failed": 0,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 1.0
+          }
+        }
+      },
+      "C": {
+        "all": {
+          "expected_handling": {
+            "expected": 64,
+            "observed": 64,
+            "passed": 48,
+            "failed": 11,
+            "pending_or_unresolved": 5,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.828125
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 64,
+            "unknown": 0
+          },
+          "no_answer_count": 4,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 3,
+          "business_completion": {
+            "requested": 25,
+            "fulfilled": 14
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 4.4035,
+              "n": 57
+            },
+            "actionability": {
+              "mean": 4.4737,
+              "n": 57
+            },
+            "clarity": {
+              "mean": 4.1579,
+              "n": 57
+            },
+            "banking_correctness": {
+              "mean": 4.451,
+              "n": 51
+            },
+            "evidence_reasoning": {
+              "mean": 4.5882,
+              "n": 17
+            }
+          },
+          "judge_valid": 57,
+          "judge_error": 7,
+          "observed_statuses": {
+            "passed": 48,
+            "failed": 11,
+            "unresolved": 5
+          },
+          "failure_modes": {
+            "state_assertion_or_runtime_failure": 5,
+            "no_answer": 4,
+            "dead_end": 1,
+            "jargon": 1,
+            "lost_context": 3,
+            "other": 5,
+            "wrong_intent": 2,
+            "unsupported_claim": 3,
+            "over_refusal": 1,
+            "unnecessary_clarification": 3
+          },
+          "hard_checks": {
+            "passed": 59,
+            "expected": 64,
+            "rate": 0.921875
+          },
+          "goal_fulfilled": 37,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 64,
+              "p50": 4023.5,
+              "p95": 39110.6,
+              "max": 62875.0
+            },
+            "api_service_ms": {
+              "n": 64,
+              "p50": 3519.25,
+              "p95": 10387.77,
+              "max": 13952.47
+            },
+            "external_model_calls_known": 81,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 48,
+            "memory_backends": {
+              "fastembed": 64
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 388228,
+                "missing_records": 0,
+                "complete_total": 388228
+              },
+              "completion_tokens": {
+                "known_sum": 75343,
+                "missing_records": 0,
+                "complete_total": 75343
+              },
+              "total_tokens": {
+                "known_sum": 463571,
+                "missing_records": 0,
+                "complete_total": 463571
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 7,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 2,
+            "mean_unique_evidence": 11.285714285714286
+          },
+          "model_calls_by_role": {
+            "planner": 44,
+            "supervisor": 11,
+            "bills": 14,
+            "wealth": 12
+          },
+          "model_call_errors": 3
+        },
+        "research": {
+          "expected_handling": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 2,
+            "failed": 3,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.3333333333333333,
+            "pass_rate_upper_bound": 0.5
+          },
+          "not_a_global_model_accuracy": true,
+          "safety": {
+            "violations": 0,
+            "observed_invariant_checks": 6,
+            "unknown": 0
+          },
+          "no_answer_count": 0,
+          "answer_measurement_missing": 0,
+          "capability_gap_tasks": 0,
+          "business_completion": {
+            "requested": 0,
+            "fulfilled": 0
+          },
+          "quality_means_judged_only": {
+            "coverage": {
+              "mean": 3.75,
+              "n": 4
+            },
+            "banking_correctness": {
+              "mean": 4.5,
+              "n": 4
+            },
+            "evidence_reasoning": {
+              "mean": 4,
+              "n": 4
+            },
+            "actionability": {
+              "mean": 4,
+              "n": 4
+            },
+            "clarity": {
+              "mean": 3.75,
+              "n": 4
+            }
+          },
+          "judge_valid": 4,
+          "judge_error": 2,
+          "observed_statuses": {
+            "passed": 2,
+            "failed": 3,
+            "unresolved": 1
+          },
+          "failure_modes": {
+            "state_assertion_or_runtime_failure": 1,
+            "wrong_intent": 1,
+            "unsupported_claim": 1,
+            "other": 1,
+            "lost_context": 1
+          },
+          "hard_checks": {
+            "passed": 5,
+            "expected": 6,
+            "rate": 0.8333333333333334
+          },
+          "goal_fulfilled": 2,
+          "efficiency": {
+            "episode_wall_ms": {
+              "n": 6,
+              "p50": 40898.5,
+              "p95": 59797.0,
+              "max": 62875.0
+            },
+            "api_service_ms": {
+              "n": 6,
+              "p50": 1024.225,
+              "p95": 1262.55,
+              "max": 1299.56
+            },
+            "external_model_calls_known": 27,
+            "model_call_count_unknown_episodes": 0,
+            "episodes_using_model": 6,
+            "memory_backends": {
+              "fastembed": 6
+            },
+            "sut_tokens": {
+              "prompt_tokens": {
+                "known_sum": 72540,
+                "missing_records": 0,
+                "complete_total": 72540
+              },
+              "completion_tokens": {
+                "known_sum": 46870,
+                "missing_records": 0,
+                "complete_total": 46870
+              },
+              "total_tokens": {
+                "known_sum": 119410,
+                "missing_records": 0,
+                "complete_total": 119410
+              }
+            },
+            "judge_attempts": 0,
+            "judge_attempt_ms": {
+              "n": 0,
+              "p50": null,
+              "p95": null,
+              "max": null
+            },
+            "judge_tokens": {
+              "prompt_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "completion_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              },
+              "total_tokens": {
+                "known_sum": 0,
+                "missing_records": 0,
+                "complete_total": 0
+              }
+            },
+            "no_price_or_invoice_estimate": true
+          },
+          "research_observed": {
+            "reports": 5,
+            "verified_rule_fallback": 0,
+            "mean_rounds": 2,
+            "mean_unique_evidence": 11
+          },
+          "model_calls_by_role": {
+            "supervisor": 9,
+            "bills": 10,
+            "wealth": 8
+          },
+          "model_call_errors": 3
+        },
+        "domains": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 6,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.75
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 4,
+            "failed": 2,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 0.75
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.7142857142857143,
+            "pass_rate_upper_bound": 0.8571428571428571
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 1.0
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 1.0
+          }
+        }
+      }
+    },
+    "pairs": {
+      "S_AGENT_vs_M_AGENT": {
+        "all": {
+          "matched_episodes": 64,
+          "resolved_pairs": 58,
+          "unresolved_pairs_excluded": 6,
+          "both_pass": 45,
+          "left_only_pass": 1,
+          "right_only_pass": 3,
+          "both_fail": 9,
+          "right_minus_left_pass_rate": 0.034482758620689655,
+          "quality_differences": {
+            "coverage": {
+              "n": 57,
+              "right_minus_left_mean": -0.05263157894736842
+            },
+            "banking_correctness": {
+              "n": 51,
+              "right_minus_left_mean": 0.058823529411764705
+            },
+            "evidence_reasoning": {
+              "n": 17,
+              "right_minus_left_mean": 0
+            },
+            "actionability": {
+              "n": 57,
+              "right_minus_left_mean": 0
+            },
+            "clarity": {
+              "n": 57,
+              "right_minus_left_mean": -0.05263157894736842
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              -0.03227128503437335,
+              0.10526315789473684
+            ],
+            "families": 48,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": false,
+            "diagnostic_not_population_inference": true
+          }
+        },
+        "research": {
+          "matched_episodes": 6,
+          "resolved_pairs": 4,
+          "unresolved_pairs_excluded": 2,
+          "both_pass": 1,
+          "left_only_pass": 0,
+          "right_only_pass": 1,
+          "both_fail": 2,
+          "right_minus_left_pass_rate": 0.25,
+          "quality_differences": {
+            "coverage": {
+              "n": 4,
+              "right_minus_left_mean": 0
+            },
+            "banking_correctness": {
+              "n": 4,
+              "right_minus_left_mean": 0
+            },
+            "evidence_reasoning": {
+              "n": 4,
+              "right_minus_left_mean": -0.25
+            },
+            "actionability": {
+              "n": 4,
+              "right_minus_left_mean": 0.25
+            },
+            "clarity": {
+              "n": 4,
+              "right_minus_left_mean": -0.25
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              0.0,
+              0.75
+            ],
+            "families": 4,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": false,
+            "diagnostic_not_population_inference": true
+          }
+        }
+      },
+      "S_AGENT_vs_C": {
+        "all": {
+          "matched_episodes": 64,
+          "resolved_pairs": 58,
+          "unresolved_pairs_excluded": 6,
+          "both_pass": 46,
+          "left_only_pass": 1,
+          "right_only_pass": 1,
+          "both_fail": 10,
+          "right_minus_left_pass_rate": 0,
+          "quality_differences": {
+            "coverage": {
+              "n": 56,
+              "right_minus_left_mean": -0.08928571428571429
+            },
+            "banking_correctness": {
+              "n": 50,
+              "right_minus_left_mean": -0.12
+            },
+            "evidence_reasoning": {
+              "n": 16,
+              "right_minus_left_mean": -0.0625
+            },
+            "actionability": {
+              "n": 56,
+              "right_minus_left_mean": -0.03571428571428571
+            },
+            "clarity": {
+              "n": 56,
+              "right_minus_left_mean": -0.07142857142857142
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "families": 51,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": true,
+            "diagnostic_not_population_inference": true
+          }
+        },
+        "research": {
+          "matched_episodes": 6,
+          "resolved_pairs": 4,
+          "unresolved_pairs_excluded": 2,
+          "both_pass": 1,
+          "left_only_pass": 0,
+          "right_only_pass": 0,
+          "both_fail": 3,
+          "right_minus_left_pass_rate": 0,
+          "quality_differences": {
+            "coverage": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "banking_correctness": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "evidence_reasoning": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "actionability": {
+              "n": 3,
+              "right_minus_left_mean": 0.3333333333333333
+            },
+            "clarity": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "families": 4,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": true,
+            "diagnostic_not_population_inference": true
+          }
+        }
+      },
+      "M_AGENT_vs_C": {
+        "all": {
+          "matched_episodes": 64,
+          "resolved_pairs": 55,
+          "unresolved_pairs_excluded": 9,
+          "both_pass": 43,
+          "left_only_pass": 2,
+          "right_only_pass": 1,
+          "both_fail": 9,
+          "right_minus_left_pass_rate": -0.01818181818181818,
+          "quality_differences": {
+            "coverage": {
+              "n": 53,
+              "right_minus_left_mean": 0
+            },
+            "banking_correctness": {
+              "n": 47,
+              "right_minus_left_mean": -0.14893617021276595
+            },
+            "evidence_reasoning": {
+              "n": 15,
+              "right_minus_left_mean": 0
+            },
+            "actionability": {
+              "n": 53,
+              "right_minus_left_mean": 0.018867924528301886
+            },
+            "clarity": {
+              "n": 53,
+              "right_minus_left_mean": 0
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              -0.08174700914848697,
+              0.03636363636363636
+            ],
+            "families": 48,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": false,
+            "diagnostic_not_population_inference": true
+          }
+        },
+        "research": {
+          "matched_episodes": 6,
+          "resolved_pairs": 4,
+          "unresolved_pairs_excluded": 2,
+          "both_pass": 1,
+          "left_only_pass": 1,
+          "right_only_pass": 0,
+          "both_fail": 2,
+          "right_minus_left_pass_rate": -0.25,
+          "quality_differences": {
+            "coverage": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "banking_correctness": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "evidence_reasoning": {
+              "n": 3,
+              "right_minus_left_mean": 0.3333333333333333
+            },
+            "actionability": {
+              "n": 3,
+              "right_minus_left_mean": 0
+            },
+            "clarity": {
+              "n": 3,
+              "right_minus_left_mean": 0.3333333333333333
+            }
+          },
+          "note": "Resolved pairs only; selection from missing judgements can bias this estimate.",
+          "family_bootstrap_ci95": {
+            "interval": [
+              -0.75,
+              0.0
+            ],
+            "families": 4,
+            "replicates": 2000,
+            "seed": 20261017,
+            "degenerate": false,
+            "diagnostic_not_population_inference": true
+          }
+        }
+      }
+    },
+    "single_run_not_all3": true,
+    "caveats": [
+      "Internal author-used diagnostic cases; no independent human labels.",
+      "A common LLM constraint parser is retained; single means one research decision role, not one LLM invocation.",
+      "Domain proposals and report mathematics remain deterministic; most ordinary tasks share the same planner.",
+      "Same per-call token cap and episode call ceiling, but actual compute is measured, not equalized.",
+      "One-pass baselines receive full evidence; C may trade retrieval selectivity for extra rounds.",
+      "Judge averages exclude missing measurements; all-task pass denominators retain them.",
+      "Six predeclared research tasks are a small subset; an overall difference is not proof of a general architecture advantage."
+    ]
+  },
+  "diagnostic_only": true,
+  "variants": {
+    "S_AGENT": {
+      "expected_handling": {
+        "expected": 64,
+        "observed": 64,
+        "passed": 50,
+        "failed": 12,
+        "pending_or_unresolved": 2,
+        "pass_rate_lower_bound": 0.78125,
+        "pass_rate_upper_bound": 0.8125
+      },
+      "not_a_global_model_accuracy": true,
+      "safety": {
+        "violations": 0,
+        "observed_invariant_checks": 64,
+        "unknown": 0
+      },
+      "no_answer_count": 3,
+      "answer_measurement_missing": 0,
+      "capability_gap_tasks": 3,
+      "business_completion": {
+        "requested": 25,
+        "fulfilled": 14,
+        "expected": 25,
+        "pending_or_unobserved": 0
+      },
+      "quality_means_judged_only": {
+        "coverage": {
+          "mean": 4.4262,
+          "n": 61
+        },
+        "actionability": {
+          "mean": 4.4262,
+          "n": 61
+        },
+        "clarity": {
+          "mean": 4.1639,
+          "n": 61
+        },
+        "banking_correctness": {
+          "mean": 4.4545,
+          "n": 55
+        },
+        "evidence_reasoning": {
+          "mean": 4.4444,
+          "n": 18
+        }
+      },
+      "judge_valid": 61,
+      "judge_error": 3,
+      "observed_statuses": {
+        "passed": 50,
+        "failed": 12,
+        "unresolved": 2
+      },
+      "failure_modes": {
+        "other": 4,
+        "lost_context": 4,
+        "state_assertion_or_runtime_failure": 4,
+        "no_answer": 3,
+        "wrong_intent": 3,
+        "dead_end": 3,
+        "wrong_financial_fact": 3,
+        "unsupported_claim": 3,
+        "unnecessary_clarification": 2
+      },
+      "groups": {
+        "domain": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 6,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.75
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 5,
+            "failed": 2,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.625,
+            "pass_rate_upper_bound": 0.75
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 6,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8571428571428571,
+            "pass_rate_upper_bound": 0.8571428571428571
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 0.875
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "difficulty": {
+          "simple": {
+            "expected": 14,
+            "observed": 14,
+            "passed": 11,
+            "failed": 3,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.7857142857142857,
+            "pass_rate_upper_bound": 0.7857142857142857
+          },
+          "medium": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 25,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.9259259259259259,
+            "pass_rate_upper_bound": 0.9259259259259259
+          },
+          "complex": {
+            "expected": 23,
+            "observed": 23,
+            "passed": 14,
+            "failed": 7,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.6086956521739131,
+            "pass_rate_upper_bound": 0.6956521739130435
+          }
+        },
+        "completion_target": {
+          "answer": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 24,
+            "failed": 3,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8888888888888888,
+            "pass_rate_upper_bound": 0.8888888888888888
+          },
+          "execute": {
+            "expected": 25,
+            "observed": 25,
+            "passed": 19,
+            "failed": 6,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.76,
+            "pass_rate_upper_bound": 0.76
+          },
+          "prepare": {
+            "expected": 2,
+            "observed": 2,
+            "passed": 2,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "research": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 2,
+            "failed": 3,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.3333333333333333,
+            "pass_rate_upper_bound": 0.5
+          },
+          "boundary": {
+            "expected": 4,
+            "observed": 4,
+            "passed": 3,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "llm_exercised": {
+          "False": {
+            "expected": 16,
+            "observed": 16,
+            "passed": 15,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.9375,
+            "pass_rate_upper_bound": 0.9375
+          },
+          "True": {
+            "expected": 48,
+            "observed": 48,
+            "passed": 35,
+            "failed": 11,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.7291666666666666,
+            "pass_rate_upper_bound": 0.7708333333333334
+          }
+        }
+      },
+      "suite": "finservicebench-64-v3-task-clarity",
+      "variant": "S_AGENT",
+      "mode": "llm",
+      "scope": "dom_v4",
+      "trials": 1,
+      "human_labels": 0,
+      "kappa": null,
+      "diagnostic_only": true,
+      "efficiency": {
+        "episode_wall_ms": {
+          "n": 64,
+          "p50": 4070.0,
+          "p95": 24167.75,
+          "max": 54797.0
+        },
+        "api_service_ms": {
+          "n": 64,
+          "p50": 3247.305,
+          "p95": 13455.614,
+          "max": 17902.42
+        },
+        "external_model_calls_known": 62,
+        "model_call_count_unknown_episodes": 0,
+        "episodes_using_model": 48,
+        "memory_backends": {
+          "fastembed": 64
+        },
+        "sut_tokens": {
+          "prompt_tokens": {
+            "known_sum": 351914,
+            "missing_records": 0,
+            "complete_total": 351914
+          },
+          "completion_tokens": {
+            "known_sum": 59803,
+            "missing_records": 0,
+            "complete_total": 59803
+          },
+          "total_tokens": {
+            "known_sum": 411717,
+            "missing_records": 0,
+            "complete_total": 411717
+          }
+        },
+        "judge_attempts": 82,
+        "judge_attempt_ms": {
+          "n": 82,
+          "p50": 54508.055,
+          "p95": 150005.774,
+          "max": 150015.14
+        },
+        "judge_tokens": {
+          "prompt_tokens": {
+            "known_sum": 881236,
+            "missing_records": 10,
+            "complete_total": null
+          },
+          "completion_tokens": {
+            "known_sum": 180280,
+            "missing_records": 10,
+            "complete_total": null
+          },
+          "total_tokens": {
+            "known_sum": 1061516,
+            "missing_records": 10,
+            "complete_total": null
+          }
+        },
+        "no_price_or_invoice_estimate": true
+      },
+      "judge_scheduling_profiles": [
+        {
+          "concurrency": 6,
+          "graded_episodes": 64
+        }
+      ],
+      "fsm_coverage": {
+        "workflow_states": {
+          "observed": [
+            "AWAITING_INPUT",
+            "COMPILED",
+            "EXECUTING",
+            "FINISHED",
+            "VERIFYING"
+          ],
+          "possible": 8,
+          "coverage": 0.625,
+          "uncovered": [
+            "BACKTRACKING",
+            "HUMAN",
+            "REPLANNING"
+          ]
+        },
+        "workflow_transitions": {
+          "observed": 5,
+          "possible": 16,
+          "coverage": 0.3125,
+          "event_count": 177,
+          "uncovered": [
+            [
+              "AWAITING_INPUT",
+              "FINISHED"
+            ],
+            [
+              "BACKTRACKING",
+              "HUMAN"
+            ],
+            [
+              "BACKTRACKING",
+              "REPLANNING"
+            ],
+            [
+              "BACKTRACKING",
+              "VERIFYING"
+            ],
+            [
+              "EXECUTING",
+              "VERIFYING"
+            ],
+            [
+              "FINISHED",
+              "VERIFYING"
+            ],
+            [
+              "HUMAN",
+              "VERIFYING"
+            ],
+            [
+              "REPLANNING",
+              "HUMAN"
+            ],
+            [
+              "REPLANNING",
+              "VERIFYING"
+            ],
+            [
+              "VERIFYING",
+              "BACKTRACKING"
+            ],
+            [
+              "VERIFYING",
+              "HUMAN"
+            ]
+          ],
+          "illegal_events": []
+        },
+        "node_snapshot_states": {
+          "observed": [
+            "FAILED",
+            "READY",
+            "SUCCEEDED",
+            "UNKNOWN",
+            "WAIT_CONFIRM",
+            "WAIT_INPUT",
+            "WAIT_MFA",
+            "WAIT_TIME"
+          ],
+          "possible": 12,
+          "coverage": 0.6666666666666666,
+          "uncovered": [
+            "CANCELLED",
+            "PARTIAL",
+            "SKIPPED",
+            "WAIT_HUMAN"
+          ],
+          "snapshot_lower_bound_not_complete_transition_coverage": true
+        },
+        "not_a_correctness_or_real_world_failure_probability": true
+      },
+      "user_goal_fulfillment": {
+        "fully_fulfilled": 37,
+        "expected_episodes": 64,
+        "note": "Correct clarification, safe decline, constraints and capability gaps are not recorded as full goal fulfillment"
+      },
+      "all_trials": {
+        "eligible_tasks": 64,
+        "all_passed": 50,
+        "k": 1
+      },
+      "domain_macro_resolution": null,
+      "family_cluster_ci95": null
+    },
+    "M_AGENT": {
+      "expected_handling": {
+        "expected": 64,
+        "observed": 64,
+        "passed": 48,
+        "failed": 10,
+        "pending_or_unresolved": 6,
+        "pass_rate_lower_bound": 0.75,
+        "pass_rate_upper_bound": 0.84375
+      },
+      "not_a_global_model_accuracy": true,
+      "safety": {
+        "violations": 0,
+        "observed_invariant_checks": 64,
+        "unknown": 0
+      },
+      "no_answer_count": 4,
+      "answer_measurement_missing": 0,
+      "capability_gap_tasks": 3,
+      "business_completion": {
+        "requested": 25,
+        "fulfilled": 12,
+        "expected": 25,
+        "pending_or_unobserved": 3
+      },
+      "quality_means_judged_only": {
+        "coverage": {
+          "mean": 4.3448,
+          "n": 58
+        },
+        "actionability": {
+          "mean": 4.3966,
+          "n": 58
+        },
+        "clarity": {
+          "mean": 4.1034,
+          "n": 58
+        },
+        "banking_correctness": {
+          "mean": 4.5192,
+          "n": 52
+        },
+        "evidence_reasoning": {
+          "mean": 4.4444,
+          "n": 18
+        }
+      },
+      "judge_valid": 58,
+      "judge_error": 6,
+      "observed_statuses": {
+        "passed": 48,
+        "failed": 10,
+        "unresolved": 6
+      },
+      "failure_modes": {
+        "lost_context": 3,
+        "state_assertion_or_runtime_failure": 4,
+        "no_answer": 4,
+        "wrong_intent": 3,
+        "dead_end": 2,
+        "unsupported_claim": 2,
+        "other": 4,
+        "wrong_financial_fact": 1,
+        "unnecessary_clarification": 4
+      },
+      "groups": {
+        "domain": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 0.875
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 0.875
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 5,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.7142857142857143,
+            "pass_rate_upper_bound": 0.7142857142857143
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 8,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 3,
+            "failed": 0,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "difficulty": {
+          "simple": {
+            "expected": 14,
+            "observed": 14,
+            "passed": 11,
+            "failed": 3,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.7857142857142857,
+            "pass_rate_upper_bound": 0.7857142857142857
+          },
+          "medium": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 23,
+            "failed": 2,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.8518518518518519,
+            "pass_rate_upper_bound": 0.9259259259259259
+          },
+          "complex": {
+            "expected": 23,
+            "observed": 23,
+            "passed": 14,
+            "failed": 5,
+            "pending_or_unresolved": 4,
+            "pass_rate_lower_bound": 0.6086956521739131,
+            "pass_rate_upper_bound": 0.782608695652174
+          }
+        },
+        "completion_target": {
+          "answer": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 24,
+            "failed": 3,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8888888888888888,
+            "pass_rate_upper_bound": 0.8888888888888888
+          },
+          "execute": {
+            "expected": 25,
+            "observed": 25,
+            "passed": 17,
+            "failed": 5,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.68,
+            "pass_rate_upper_bound": 0.8
+          },
+          "prepare": {
+            "expected": 2,
+            "observed": 2,
+            "passed": 2,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "research": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 0.6666666666666666
+          },
+          "boundary": {
+            "expected": 4,
+            "observed": 4,
+            "passed": 2,
+            "failed": 0,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "llm_exercised": {
+          "False": {
+            "expected": 16,
+            "observed": 16,
+            "passed": 15,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.9375,
+            "pass_rate_upper_bound": 0.9375
+          },
+          "True": {
+            "expected": 48,
+            "observed": 48,
+            "passed": 33,
+            "failed": 9,
+            "pending_or_unresolved": 6,
+            "pass_rate_lower_bound": 0.6875,
+            "pass_rate_upper_bound": 0.8125
+          }
+        }
+      },
+      "suite": "finservicebench-64-v3-task-clarity",
+      "variant": "M_AGENT",
+      "mode": "llm",
+      "scope": "dom_v4",
+      "trials": 1,
+      "human_labels": 0,
+      "kappa": null,
+      "diagnostic_only": true,
+      "efficiency": {
+        "episode_wall_ms": {
+          "n": 64,
+          "p50": 4195.5,
+          "p95": 33517.65,
+          "max": 59547.0
+        },
+        "api_service_ms": {
+          "n": 64,
+          "p50": 3543.06,
+          "p95": 13749.934,
+          "max": 37831.39
+        },
+        "external_model_calls_known": 66,
+        "model_call_count_unknown_episodes": 0,
+        "episodes_using_model": 48,
+        "memory_backends": {
+          "fastembed": 64
+        },
+        "sut_tokens": {
+          "prompt_tokens": {
+            "known_sum": 351355,
+            "missing_records": 0,
+            "complete_total": 351355
+          },
+          "completion_tokens": {
+            "known_sum": 76082,
+            "missing_records": 0,
+            "complete_total": 76082
+          },
+          "total_tokens": {
+            "known_sum": 427437,
+            "missing_records": 0,
+            "complete_total": 427437
+          }
+        },
+        "judge_attempts": 82,
+        "judge_attempt_ms": {
+          "n": 82,
+          "p50": 40009.035,
+          "p95": 150010.051,
+          "max": 150023.11
+        },
+        "judge_tokens": {
+          "prompt_tokens": {
+            "known_sum": 873059,
+            "missing_records": 11,
+            "complete_total": null
+          },
+          "completion_tokens": {
+            "known_sum": 186441,
+            "missing_records": 11,
+            "complete_total": null
+          },
+          "total_tokens": {
+            "known_sum": 1059500,
+            "missing_records": 11,
+            "complete_total": null
+          }
+        },
+        "no_price_or_invoice_estimate": true
+      },
+      "judge_scheduling_profiles": [
+        {
+          "concurrency": 6,
+          "graded_episodes": 64
+        }
+      ],
+      "fsm_coverage": {
+        "workflow_states": {
+          "observed": [
+            "AWAITING_INPUT",
+            "COMPILED",
+            "EXECUTING",
+            "FINISHED",
+            "VERIFYING"
+          ],
+          "possible": 8,
+          "coverage": 0.625,
+          "uncovered": [
+            "BACKTRACKING",
+            "HUMAN",
+            "REPLANNING"
+          ]
+        },
+        "workflow_transitions": {
+          "observed": 5,
+          "possible": 16,
+          "coverage": 0.3125,
+          "event_count": 177,
+          "uncovered": [
+            [
+              "AWAITING_INPUT",
+              "FINISHED"
+            ],
+            [
+              "BACKTRACKING",
+              "HUMAN"
+            ],
+            [
+              "BACKTRACKING",
+              "REPLANNING"
+            ],
+            [
+              "BACKTRACKING",
+              "VERIFYING"
+            ],
+            [
+              "EXECUTING",
+              "VERIFYING"
+            ],
+            [
+              "FINISHED",
+              "VERIFYING"
+            ],
+            [
+              "HUMAN",
+              "VERIFYING"
+            ],
+            [
+              "REPLANNING",
+              "HUMAN"
+            ],
+            [
+              "REPLANNING",
+              "VERIFYING"
+            ],
+            [
+              "VERIFYING",
+              "BACKTRACKING"
+            ],
+            [
+              "VERIFYING",
+              "HUMAN"
+            ]
+          ],
+          "illegal_events": []
+        },
+        "node_snapshot_states": {
+          "observed": [
+            "FAILED",
+            "READY",
+            "SUCCEEDED",
+            "UNKNOWN",
+            "WAIT_CONFIRM",
+            "WAIT_INPUT",
+            "WAIT_MFA",
+            "WAIT_TIME"
+          ],
+          "possible": 12,
+          "coverage": 0.6666666666666666,
+          "uncovered": [
+            "CANCELLED",
+            "PARTIAL",
+            "SKIPPED",
+            "WAIT_HUMAN"
+          ],
+          "snapshot_lower_bound_not_complete_transition_coverage": true
+        },
+        "not_a_correctness_or_real_world_failure_probability": true
+      },
+      "user_goal_fulfillment": {
+        "fully_fulfilled": 36,
+        "expected_episodes": 64,
+        "note": "Correct clarification, safe decline, constraints and capability gaps are not recorded as full goal fulfillment"
+      },
+      "all_trials": {
+        "eligible_tasks": 64,
+        "all_passed": 48,
+        "k": 1
+      },
+      "domain_macro_resolution": null,
+      "family_cluster_ci95": null
+    },
+    "C": {
+      "expected_handling": {
+        "expected": 64,
+        "observed": 64,
+        "passed": 48,
+        "failed": 11,
+        "pending_or_unresolved": 5,
+        "pass_rate_lower_bound": 0.75,
+        "pass_rate_upper_bound": 0.828125
+      },
+      "not_a_global_model_accuracy": true,
+      "safety": {
+        "violations": 0,
+        "observed_invariant_checks": 64,
+        "unknown": 0
+      },
+      "no_answer_count": 4,
+      "answer_measurement_missing": 0,
+      "capability_gap_tasks": 3,
+      "business_completion": {
+        "requested": 25,
+        "fulfilled": 14,
+        "expected": 25,
+        "pending_or_unobserved": 1
+      },
+      "quality_means_judged_only": {
+        "coverage": {
+          "mean": 4.4035,
+          "n": 57
+        },
+        "actionability": {
+          "mean": 4.4737,
+          "n": 57
+        },
+        "clarity": {
+          "mean": 4.1579,
+          "n": 57
+        },
+        "banking_correctness": {
+          "mean": 4.451,
+          "n": 51
+        },
+        "evidence_reasoning": {
+          "mean": 4.5882,
+          "n": 17
+        }
+      },
+      "judge_valid": 57,
+      "judge_error": 7,
+      "observed_statuses": {
+        "passed": 48,
+        "failed": 11,
+        "unresolved": 5
+      },
+      "failure_modes": {
+        "state_assertion_or_runtime_failure": 5,
+        "no_answer": 4,
+        "dead_end": 1,
+        "jargon": 1,
+        "lost_context": 3,
+        "other": 5,
+        "wrong_intent": 2,
+        "unsupported_claim": 3,
+        "over_refusal": 1,
+        "unnecessary_clarification": 3
+      },
+      "groups": {
+        "domain": {
+          "服务对话": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 6,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "智能转账": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 6,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 0.75
+          },
+          "账单分析": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 0.8333333333333334
+          },
+          "理财操作": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 4,
+            "failed": 2,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.5,
+            "pass_rate_upper_bound": 0.75
+          },
+          "卡片管理": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "订阅代扣": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 4,
+            "failed": 1,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8,
+            "pass_rate_upper_bound": 0.8
+          },
+          "跨场景联动": {
+            "expected": 5,
+            "observed": 5,
+            "passed": 3,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.6,
+            "pass_rate_upper_bound": 0.6
+          },
+          "金融知识与计算": {
+            "expected": 7,
+            "observed": 7,
+            "passed": 5,
+            "failed": 1,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.7142857142857143,
+            "pass_rate_upper_bound": 0.8571428571428571
+          },
+          "公开金融信息": {
+            "expected": 8,
+            "observed": 8,
+            "passed": 7,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 1.0
+          },
+          "安全与故障恢复": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 5,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.8333333333333334,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "difficulty": {
+          "simple": {
+            "expected": 14,
+            "observed": 14,
+            "passed": 12,
+            "failed": 2,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 0.8571428571428571,
+            "pass_rate_upper_bound": 0.8571428571428571
+          },
+          "medium": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 22,
+            "failed": 2,
+            "pending_or_unresolved": 3,
+            "pass_rate_lower_bound": 0.8148148148148148,
+            "pass_rate_upper_bound": 0.9259259259259259
+          },
+          "complex": {
+            "expected": 23,
+            "observed": 23,
+            "passed": 14,
+            "failed": 7,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.6086956521739131,
+            "pass_rate_upper_bound": 0.6956521739130435
+          }
+        },
+        "completion_target": {
+          "answer": {
+            "expected": 27,
+            "observed": 27,
+            "passed": 23,
+            "failed": 2,
+            "pending_or_unresolved": 2,
+            "pass_rate_lower_bound": 0.8518518518518519,
+            "pass_rate_upper_bound": 0.9259259259259259
+          },
+          "execute": {
+            "expected": 25,
+            "observed": 25,
+            "passed": 18,
+            "failed": 6,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.72,
+            "pass_rate_upper_bound": 0.76
+          },
+          "prepare": {
+            "expected": 2,
+            "observed": 2,
+            "passed": 2,
+            "failed": 0,
+            "pending_or_unresolved": 0,
+            "pass_rate_lower_bound": 1.0,
+            "pass_rate_upper_bound": 1.0
+          },
+          "research": {
+            "expected": 6,
+            "observed": 6,
+            "passed": 2,
+            "failed": 3,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.3333333333333333,
+            "pass_rate_upper_bound": 0.5
+          },
+          "boundary": {
+            "expected": 4,
+            "observed": 4,
+            "passed": 3,
+            "failed": 0,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.75,
+            "pass_rate_upper_bound": 1.0
+          }
+        },
+        "llm_exercised": {
+          "False": {
+            "expected": 16,
+            "observed": 16,
+            "passed": 14,
+            "failed": 1,
+            "pending_or_unresolved": 1,
+            "pass_rate_lower_bound": 0.875,
+            "pass_rate_upper_bound": 0.9375
+          },
+          "True": {
+            "expected": 48,
+            "observed": 48,
+            "passed": 34,
+            "failed": 10,
+            "pending_or_unresolved": 4,
+            "pass_rate_lower_bound": 0.7083333333333334,
+            "pass_rate_upper_bound": 0.7916666666666666
+          }
+        }
+      },
+      "suite": "finservicebench-64-v3-task-clarity",
+      "variant": "C",
+      "mode": "llm",
+      "scope": "dom_v4",
+      "trials": 1,
+      "human_labels": 0,
+      "kappa": null,
+      "diagnostic_only": true,
+      "efficiency": {
+        "episode_wall_ms": {
+          "n": 64,
+          "p50": 4023.5,
+          "p95": 39110.6,
+          "max": 62875.0
+        },
+        "api_service_ms": {
+          "n": 64,
+          "p50": 3519.25,
+          "p95": 10387.77,
+          "max": 13952.47
+        },
+        "external_model_calls_known": 81,
+        "model_call_count_unknown_episodes": 0,
+        "episodes_using_model": 48,
+        "memory_backends": {
+          "fastembed": 64
+        },
+        "sut_tokens": {
+          "prompt_tokens": {
+            "known_sum": 388228,
+            "missing_records": 0,
+            "complete_total": 388228
+          },
+          "completion_tokens": {
+            "known_sum": 75343,
+            "missing_records": 0,
+            "complete_total": 75343
+          },
+          "total_tokens": {
+            "known_sum": 463571,
+            "missing_records": 0,
+            "complete_total": 463571
+          }
+        },
+        "judge_attempts": 80,
+        "judge_attempt_ms": {
+          "n": 80,
+          "p50": 41576.065,
+          "p95": 150004.598,
+          "max": 150023.6
+        },
+        "judge_tokens": {
+          "prompt_tokens": {
+            "known_sum": 905778,
+            "missing_records": 6,
+            "complete_total": null
+          },
+          "completion_tokens": {
+            "known_sum": 194123,
+            "missing_records": 6,
+            "complete_total": null
+          },
+          "total_tokens": {
+            "known_sum": 1099901,
+            "missing_records": 6,
+            "complete_total": null
+          }
+        },
+        "no_price_or_invoice_estimate": true
+      },
+      "judge_scheduling_profiles": [
+        {
+          "concurrency": 6,
+          "graded_episodes": 64
+        }
+      ],
+      "fsm_coverage": {
+        "workflow_states": {
+          "observed": [
+            "AWAITING_INPUT",
+            "COMPILED",
+            "EXECUTING",
+            "FINISHED",
+            "VERIFYING"
+          ],
+          "possible": 8,
+          "coverage": 0.625,
+          "uncovered": [
+            "BACKTRACKING",
+            "HUMAN",
+            "REPLANNING"
+          ]
+        },
+        "workflow_transitions": {
+          "observed": 5,
+          "possible": 16,
+          "coverage": 0.3125,
+          "event_count": 171,
+          "uncovered": [
+            [
+              "AWAITING_INPUT",
+              "FINISHED"
+            ],
+            [
+              "BACKTRACKING",
+              "HUMAN"
+            ],
+            [
+              "BACKTRACKING",
+              "REPLANNING"
+            ],
+            [
+              "BACKTRACKING",
+              "VERIFYING"
+            ],
+            [
+              "EXECUTING",
+              "VERIFYING"
+            ],
+            [
+              "FINISHED",
+              "VERIFYING"
+            ],
+            [
+              "HUMAN",
+              "VERIFYING"
+            ],
+            [
+              "REPLANNING",
+              "HUMAN"
+            ],
+            [
+              "REPLANNING",
+              "VERIFYING"
+            ],
+            [
+              "VERIFYING",
+              "BACKTRACKING"
+            ],
+            [
+              "VERIFYING",
+              "HUMAN"
+            ]
+          ],
+          "illegal_events": []
+        },
+        "node_snapshot_states": {
+          "observed": [
+            "FAILED",
+            "READY",
+            "SUCCEEDED",
+            "UNKNOWN",
+            "WAIT_CONFIRM",
+            "WAIT_INPUT",
+            "WAIT_MFA",
+            "WAIT_TIME"
+          ],
+          "possible": 12,
+          "coverage": 0.6666666666666666,
+          "uncovered": [
+            "CANCELLED",
+            "PARTIAL",
+            "SKIPPED",
+            "WAIT_HUMAN"
+          ],
+          "snapshot_lower_bound_not_complete_transition_coverage": true
+        },
+        "not_a_correctness_or_real_world_failure_probability": true
+      },
+      "user_goal_fulfillment": {
+        "fully_fulfilled": 37,
+        "expected_episodes": 64,
+        "note": "Correct clarification, safe decline, constraints and capability gaps are not recorded as full goal fulfillment"
+      },
+      "all_trials": {
+        "eligible_tasks": 64,
+        "all_passed": 48,
+        "k": 1
+      },
+      "domain_macro_resolution": null,
+      "family_cluster_ci95": null
+    }
+  }
+}

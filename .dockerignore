@@ -1,0 +1,16 @@
+.env
+.data
+.venv
+.git
+__pycache__
+.pytest_cache
+.ruff_cache
+参考文献
+*.egg-info
+
+node_modules
+docs
+evaluation
+tests
+.env.*
+*.sqlite3

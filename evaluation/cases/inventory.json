@@ -1,0 +1,19 @@
+{
+  "total": 100,
+  "core35": 35,
+  "groups": {
+    "dialogue": 22,
+    "research": 15,
+    "security": 15,
+    "recovery": 15,
+    "business": 33
+  },
+  "core_groups": {
+    "dialogue": 18,
+    "research": 8,
+    "security": 5,
+    "recovery": 4
+  },
+  "executable": false,
+  "human_reviewed": false
+}

@@ -1,0 +1,139 @@
+{
+  "at": "2026-10-23T13:26:21.305678+00:00",
+  "mode": "live_configured_model",
+  "model": "deepseek-flash",
+  "public_sources": "fixed_directory_fixture",
+  "criteria": "evaluation/cases/complex_requests_10.json",
+  "cases": [
+    {
+      "id": "C01",
+      "dimension": "三目标与能力边界",
+      "passed": true,
+      "scenario_seconds": 0.223,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C02",
+      "dimension": "新卡指代与产品语义",
+      "passed": true,
+      "scenario_seconds": 1.157,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C03",
+      "dimension": "相对金额与直接路由",
+      "passed": true,
+      "scenario_seconds": 0.15,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C04",
+      "dimension": "冻结资金与比例计算",
+      "passed": true,
+      "scenario_seconds": 0.399,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C05",
+      "dimension": "顺序计算与多收款人",
+      "passed": true,
+      "scenario_seconds": 4.223,
+      "model_calls": 1,
+      "model_runs": [
+        {
+          "role": "verifier",
+          "status": "SUCCEEDED",
+          "duration_ms": 3993.841,
+          "prompt_tokens": 2538,
+          "completion_tokens": 5,
+          "total_tokens": 2543,
+          "error_code": ""
+        }
+      ],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C06",
+      "dimension": "总资金、动作金额、每次投入",
+      "passed": true,
+      "scenario_seconds": 0.167,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C07",
+      "dimension": "多轮纠正与原任务保留",
+      "passed": true,
+      "scenario_seconds": 0.682,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C08",
+      "dimension": "已完成任务与后续补槽",
+      "passed": true,
+      "scenario_seconds": 0.406,
+      "model_calls": 0,
+      "model_runs": [],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C09",
+      "dimension": "依赖引用与工具约束",
+      "passed": true,
+      "scenario_seconds": 2.684,
+      "model_calls": 1,
+      "model_runs": [
+        {
+          "role": "verifier",
+          "status": "SUCCEEDED",
+          "duration_ms": 2248.039,
+          "prompt_tokens": 2317,
+          "completion_tokens": 5,
+          "total_tokens": 2322,
+          "error_code": ""
+        }
+      ],
+      "embedding_backend": "fastembed"
+    },
+    {
+      "id": "C10",
+      "dimension": "同句否定、改口与任务覆盖",
+      "passed": true,
+      "scenario_seconds": 6.378,
+      "model_calls": 2,
+      "model_runs": [
+        {
+          "role": "verifier",
+          "status": "FAILED",
+          "duration_ms": 3465.008,
+          "prompt_tokens": 2604,
+          "completion_tokens": 115,
+          "total_tokens": 2719,
+          "error_code": "MODEL_RESPONSE_INVALID"
+        },
+        {
+          "role": "verifier",
+          "status": "SUCCEEDED",
+          "duration_ms": 2684.909,
+          "prompt_tokens": 2656,
+          "completion_tokens": 5,
+          "total_tokens": 2661,
+          "error_code": ""
+        }
+      ],
+      "embedding_backend": "fastembed"
+    }
+  ],
+  "passed": 10
+}

@@ -1,0 +1,8 @@
+{
+  "file": "evaluation/cases/complex_requests_10.json",
+  "sha256": "5de28f93834cf96fcaced6f0e4d16b89a79ab9a34003392f9155683622ba755a",
+  "parent": "bankflow-lite48-v1-20261018",
+  "original48_unchanged": true,
+  "additional_paraphrases_excluded": 4,
+  "one_task_multiple_turns_not_counted_as_more_cases": true
+}

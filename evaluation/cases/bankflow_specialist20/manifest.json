@@ -1,0 +1,39 @@
+{
+  "name": "BankFlowBench Specialist-20",
+  "version": "collaboration-research-design-v1",
+  "cases": 20,
+  "tracks": {
+    "multi_agent": 10,
+    "deep_research": 10
+  },
+  "difficulty": {
+    "complex": 14,
+    "medium": 6
+  },
+  "required_criteria": 120,
+  "default_clock": "2026-10-13T09:00:00+08:00",
+  "suggested_future_budget": {
+    "llm_calls_per_episode": 10,
+    "output_tokens_per_call": 16384,
+    "read_search_calls_per_episode": 20,
+    "same_for_all_arms": true,
+    "not_yet_implemented_for_this_suite": true
+  },
+  "status": "design_only_not_executed",
+  "executable_cases": 0,
+  "model_requests_made": 0,
+  "negative_controls": [
+    "MA04",
+    "MA10",
+    "DR06",
+    "DR10"
+  ],
+  "independent_human_labels": 0,
+  "external_factual_claims": "all_accounts_products_policies_are_synthetic_fixtures",
+  "files_sha256": {
+    "public.jsonl": "d3d6e6d407a9bad921c884605b9880ffa90a3251b74a8221a8b889fda84ba764",
+    "private_gold.jsonl": "fa3205630d5ebcd69341922fa065ae8c8886fb3f0360f5bf65e62da5b81148c4",
+    "evidence_fixtures.jsonl": "e38c1b2bc39e88ddb947d6a1ef08ff2e8db9893b31439f045a2292df371055da",
+    "shared_public_rules.json": "c3bef95be834b0acabb056eb45ce0680d7406edfde1341fd75b3d6105a5ac19a"
+  }
+}

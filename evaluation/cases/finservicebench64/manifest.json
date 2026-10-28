@@ -1,0 +1,50 @@
+{
+  "suite": "finservicebench-64-v3-task-clarity",
+  "cases": 64,
+  "domains": {
+    "服务对话": 6,
+    "智能转账": 8,
+    "账单分析": 6,
+    "理财操作": 8,
+    "卡片管理": 5,
+    "订阅代扣": 5,
+    "跨场景联动": 5,
+    "金融知识与计算": 7,
+    "公开金融信息": 8,
+    "安全与故障恢复": 6
+  },
+  "difficulty": {
+    "simple": 14,
+    "medium": 27,
+    "complex": 23
+  },
+  "families": 54,
+  "resolution_targets": {
+    "fulfilled": 49,
+    "capability_gap": 3,
+    "clarified": 2,
+    "condition_explained": 7,
+    "safely_declined": 3
+  },
+  "completion_targets": {
+    "answer": 27,
+    "execute": 25,
+    "prepare": 2,
+    "research": 6,
+    "boundary": 4
+  },
+  "provenance": {
+    "observed_failure_regression": 10,
+    "authored_diagnostic": 54
+  },
+  "public_fixture_cases": 7,
+  "semantic_requirements": 257,
+  "user_language_turns": 75,
+  "measured_business_forms": 0,
+  "human_labels": 0,
+  "unseen_holdout": false,
+  "diagnostic_only": true,
+  "dataset_hash": "c1a7cd3eef7558d30bb54f5bf6300db5f4f2b74095b68744643a9d6e7adf652c",
+  "public_hash": "67377b3acd3499353f918b9227b326f339f7f12613465154c704c1f40d0eac87",
+  "gold_hash": "c1a7cd3eef7558d30bb54f5bf6300db5f4f2b74095b68744643a9d6e7adf652c"
+}

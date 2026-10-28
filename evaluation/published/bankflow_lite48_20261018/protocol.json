@@ -1,0 +1,46 @@
+{
+  "suite": "bankflow-lite48-v1-20261018",
+  "dataset_hash": "ff2c592532d9e2576f68203bebd37177de8d0fb90f7f2df096fd8bfbe21ca5db",
+  "domains": {
+    "智能转账": 5,
+    "账单分析": 3,
+    "理财操作": 4,
+    "卡片管理": 4,
+    "订阅代扣": 3,
+    "跨场景联动": 3,
+    "外部金融知识与公开信息": 6,
+    "服务边界与安全": 4,
+    "跨业务协作与统一资金": 8,
+    "金融深度研究": 8
+  },
+  "difficulty": {
+    "easy": 9,
+    "medium": 16,
+    "hard": 15,
+    "expert": 8
+  },
+  "trials": 1,
+  "sut_model": "deepseek-flash",
+  "memory_backend": "lexical",
+  "judge": {
+    "provider": "mimo",
+    "base_url": "https://api.xiaomimimo.com/v1",
+    "model": "mimo-v2.6-pro",
+    "thinking": false,
+    "max_completion_tokens": 4096,
+    "timeout": 240.0,
+    "format_retries": 2,
+    "rpm": 20,
+    "concurrency": 2,
+    "prompt_hash": "9d7da18e20629f0717847213d6a73c349d93c177877b6c4d0e6cfb92fda04b39",
+    "revision": "dom_v8",
+    "output_mode": "strict_function_call",
+    "tool_schema_version": "bankflow-v8-dynamic-tool-v1"
+  },
+  "scope_note": "Frozen historical Single-Agent baseline versus the current Supervisor + four specialists after repairs. Same 48-case development-used diagnostic set, dataset hash and MiMo v8 rubric; one trial per arm. Call caps differ: Single-Agent 10, current Supervisor 16. Not an equal-budget architecture ablation, held-out benchmark or pure architecture causal claim. API execution plus frozen read-only desktop/mobile DOM replay, not browser-click end-to-end success. Weighting selected after execution; verdicts unchanged.",
+  "results_updated_at": "2026-10-19",
+  "model_call_caps": {
+    "S_AGENT": 10,
+    "SUPERVISOR": 16
+  }
+}

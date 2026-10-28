@@ -1,0 +1,121 @@
+{
+  "suite": "bankflow-lite48-v1-20261018",
+  "status": "authored_not_run",
+  "cases": 48,
+  "domains": 10,
+  "difficulty": {
+    "easy": 9,
+    "medium": 16,
+    "hard": 15,
+    "expert": 8
+  },
+  "tracks": {
+    "general": [
+      "funds_small",
+      "funds_large_repeat",
+      "funds_topup_resume",
+      "funds_scheduled",
+      "funds_aa_rounding",
+      "bills_month",
+      "bills_year",
+      "bills_refund",
+      "wealth_purchase",
+      "wealth_expired_assessment",
+      "wealth_risk_mismatch",
+      "wealth_redeem_delayed",
+      "cards_query",
+      "cards_virtual_apply",
+      "cards_restrict",
+      "cards_lost_vs_unlock",
+      "lite_subscriptions_readonly",
+      "subscriptions_cancel",
+      "subscriptions_reminder",
+      "cross_funding_preview",
+      "cross_pending_question",
+      "cross_long_negation",
+      "knowledge_interest",
+      "knowledge_deposit_fund",
+      "knowledge_installment_cost",
+      "knowledge_fx_gap",
+      "public_rate_followup",
+      "public_fund_code_followup",
+      "service_identity",
+      "service_model",
+      "safety_cross_user_plan",
+      "safety_source_injection"
+    ],
+    "coordination": [
+      "special_ma01",
+      "special_ma02",
+      "special_ma03",
+      "special_ma06",
+      "special_ma07",
+      "special_ma08",
+      "special_ma09",
+      "special_ma10"
+    ],
+    "research": [
+      "special_dr01",
+      "special_dr03",
+      "special_dr04",
+      "special_dr05",
+      "special_dr06",
+      "special_dr07",
+      "special_dr08",
+      "special_dr10"
+    ]
+  },
+  "arms": [
+    "S_AGENT",
+    "M_AGENT",
+    "C"
+  ],
+  "trials_initial": 1,
+  "judgements_initial_max": 144,
+  "request_count_reduction_from_252": 0.4285714285714286,
+  "cost_reduction_not_measured": true,
+  "flow": [
+    "freeze_inputs_and_configuration",
+    "native_fastapi_isolated_bank_episode",
+    "state_receipts_authorization_checks",
+    "frozen_ui_dom_v4_replay",
+    "blind_atomic_judge",
+    "paired_report"
+  ],
+  "required_reports": [
+    "all48",
+    "general32",
+    "coordination8",
+    "research8",
+    "difficulty4",
+    "domain10"
+  ],
+  "primary": {
+    "strict_handling": "满足本题目标的确定性检查、可见回答与全部必需验收项；拒绝/仅分析题不强求执行。通过数/48，未决保留分母。",
+    "five_dimension_mean": "只对三组共同有效且适用的同题同维度做配对；保留样本量和未决数，不将缺失评分填成满分。",
+    "execution_closure": "仅在completion_target=execute且resolution=fulfilled的可办理子集中报告完整办结。"
+  },
+  "secondary": [
+    "coverage",
+    "banking_correctness",
+    "evidence_reasoning",
+    "actionability",
+    "clarity",
+    "authorization_violations",
+    "token_cost",
+    "model_calls",
+    "episode_p50_p95",
+    "recovery_completion"
+  ],
+  "paired_analysis": "同题配对C-S_AGENT与C-M_AGENT；按同源family抽样的探索性Bootstrap区间；小样本不得宣称统计必然优势。",
+  "hypothesis": "协调/研究的净收益可超过成本；S<M<C是待检验假设，不能作为选题、改分或删题标准。",
+  "prior_outcomes_used_for_selection": false,
+  "holdout": false,
+  "human_validated": false,
+  "constraints": [
+    "全组相同模型、权限网关、工具能力、初始状态和题内证据可得性；不人为剥夺Single-Agent来源。",
+    "保留当前单轮基线完整首轮取证、C有界补查差异；明确这是研究策略消融，不是所有Multi-Agent的通用结论。",
+    "不按Agent数、工具调用次数、固定查询顺序或报告长度给质量加分。",
+    "本轮无任何付费调用；后续先冻结题集再看三组结果，不按排名调整样本。"
+  ]
+}

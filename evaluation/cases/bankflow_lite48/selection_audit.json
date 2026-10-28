@@ -1,0 +1,513 @@
+{
+  "source_cases": 84,
+  "retained": 48,
+  "removed": 36,
+  "selection_basis": "coverage_and_redundancy_not_candidate_scores",
+  "developer_set_not_unseen": true,
+  "rows": [
+    {
+      "source_case_id": "service_identity",
+      "retained": true,
+      "new_case_id": "service_identity",
+      "reason": "身份与产品定位回答"
+    },
+    {
+      "source_case_id": "service_capabilities",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "六类场景已由领域题直接覆盖；保留独立身份和真实模型咨询，减少同类FAQ权重。"
+    },
+    {
+      "source_case_id": "service_model",
+      "retained": true,
+      "new_case_id": "service_model",
+      "reason": "实际模型信息回答"
+    },
+    {
+      "source_case_id": "service_pending_faq",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由cross_pending_question覆盖更完整的插入咨询—继续—实际回执流程。"
+    },
+    {
+      "source_case_id": "service_mfa_help",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "演示认证帮助作为运行前校验；不以更多说明题替代授权核验任务。"
+    },
+    {
+      "source_case_id": "service_loan_gap",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "外部领域保留分期成本与外汇边界；不额外增加未接入业务拒绝题。"
+    },
+    {
+      "source_case_id": "funds_small",
+      "retained": true,
+      "new_case_id": "funds_small",
+      "reason": "已验证联系人小额转账"
+    },
+    {
+      "source_case_id": "funds_large_repeat",
+      "retained": true,
+      "new_case_id": "funds_large_repeat",
+      "reason": "大额转账与金额复述"
+    },
+    {
+      "source_case_id": "funds_topup_resume",
+      "retained": true,
+      "new_case_id": "funds_topup_resume",
+      "reason": "余额不足、口语入金与原计划续办"
+    },
+    {
+      "source_case_id": "funds_ambiguous",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "有限预算下优先保留同名已验证联系人匹配MA07；缺收款人仍留在完整84题回归库。"
+    },
+    {
+      "source_case_id": "funds_scheduled",
+      "retained": true,
+      "new_case_id": "funds_scheduled",
+      "reason": "到期重新核验的预约付款"
+    },
+    {
+      "source_case_id": "funds_aa_rounding",
+      "retained": true,
+      "new_case_id": "funds_aa_rounding",
+      "reason": "AA收款的整数分拆分"
+    },
+    {
+      "source_case_id": "funds_daily_threshold",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "日累计专测保留于完整84题安全回归；Lite48含大额强验证及混合授权，不代表已单独覆盖累计临界值。"
+    },
+    {
+      "source_case_id": "funds_correct_amount",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "MA06涵盖多轮金额修改与删除投资分支的更广约束。"
+    },
+    {
+      "source_case_id": "bills_month",
+      "retained": true,
+      "new_case_id": "bills_month",
+      "reason": "月度消费分类"
+    },
+    {
+      "source_case_id": "bills_year",
+      "retained": true,
+      "new_case_id": "bills_year",
+      "reason": "年度报告的数据覆盖"
+    },
+    {
+      "source_case_id": "bills_empty_period",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "与年度数据覆盖边界部分重叠；空记录场景留在完整回归库。"
+    },
+    {
+      "source_case_id": "bills_refund",
+      "retained": true,
+      "new_case_id": "bills_refund",
+      "reason": "消费、退款和转账口径"
+    },
+    {
+      "source_case_id": "bills_duplicate_research",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由DR01保留更强的预授权/实际扣款证据核验。"
+    },
+    {
+      "source_case_id": "bills_cashflow_stress",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由DR03替代，具有明确工资基准、逐日路径和持续时间。"
+    },
+    {
+      "source_case_id": "wealth_compare",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "DR05/DR06/DR10覆盖产品比较；避免已知实现依赖特定by_op路径的断言成为架构得分依据。"
+    },
+    {
+      "source_case_id": "wealth_holdings",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "无持仓查询留在完整回归；新集优先安排实际赎回与持仓研究。"
+    },
+    {
+      "source_case_id": "wealth_purchase",
+      "retained": true,
+      "new_case_id": "wealth_purchase",
+      "reason": "申购的适当性与授权"
+    },
+    {
+      "source_case_id": "wealth_expired_assessment",
+      "retained": true,
+      "new_case_id": "wealth_expired_assessment",
+      "reason": "测评失效时解释受阻条件"
+    },
+    {
+      "source_case_id": "wealth_risk_mismatch",
+      "retained": true,
+      "new_case_id": "wealth_risk_mismatch",
+      "reason": "风险不匹配的业务边界"
+    },
+    {
+      "source_case_id": "wealth_redeem_delayed",
+      "retained": true,
+      "new_case_id": "wealth_redeem_delayed",
+      "reason": "赎回受理与延迟结算"
+    },
+    {
+      "source_case_id": "wealth_missing_terms",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由DR06替代，明确缺失项与有界停止条件。"
+    },
+    {
+      "source_case_id": "wealth_liquidity_deadline",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由DR04替代，增加工作日、截点与小时级截止核验。"
+    },
+    {
+      "source_case_id": "cards_query",
+      "retained": true,
+      "new_case_id": "cards_query",
+      "reason": "查询本人现有卡片"
+    },
+    {
+      "source_case_id": "cards_virtual_apply",
+      "retained": true,
+      "new_case_id": "cards_virtual_apply",
+      "reason": "存量已核验客户开通虚拟卡"
+    },
+    {
+      "source_case_id": "cards_restrict",
+      "retained": true,
+      "new_case_id": "cards_restrict",
+      "reason": "卡片金额与类别限制"
+    },
+    {
+      "source_case_id": "cards_lost_vs_unlock",
+      "retained": true,
+      "new_case_id": "cards_lost_vs_unlock",
+      "reason": "挂失与解除交易限制的区别"
+    },
+    {
+      "source_case_id": "cards_limit_approval",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "MA07保留卡消费限额与转账通道限额边界；额度调整独立回归仍在64题库。"
+    },
+    {
+      "source_case_id": "subscriptions_detect",
+      "retained": true,
+      "new_case_id": "lite_subscriptions_readonly",
+      "reason": "先查询别取消的候选识别"
+    },
+    {
+      "source_case_id": "subscriptions_cancel",
+      "retained": true,
+      "new_case_id": "subscriptions_cancel",
+      "reason": "支持直连的会员取消"
+    },
+    {
+      "source_case_id": "subscriptions_bank_only",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由MA03覆盖代扣、合同与卡片三对象的权限范围。"
+    },
+    {
+      "source_case_id": "subscriptions_external",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "外部商户不支持取消的人工接续留在完整回归；直连取消与银行停扣在Lite48均有。"
+    },
+    {
+      "source_case_id": "subscriptions_reminder",
+      "retained": true,
+      "new_case_id": "subscriptions_reminder",
+      "reason": "续费提醒与取消互不替代"
+    },
+    {
+      "source_case_id": "cross_funding_preview",
+      "retained": true,
+      "new_case_id": "cross_funding_preview",
+      "reason": "预算、转账与理财的整单资金影响"
+    },
+    {
+      "source_case_id": "cross_insufficient_atomic",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由MA02覆盖更明确的全成全败约束。"
+    },
+    {
+      "source_case_id": "cross_research_readonly",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "MA01与8道DR题覆盖联合研究及禁止写入。"
+    },
+    {
+      "source_case_id": "cross_long_negation",
+      "retained": true,
+      "new_case_id": "cross_long_negation",
+      "reason": "历史偏好与本轮否定条件"
+    },
+    {
+      "source_case_id": "cross_pending_question",
+      "retained": true,
+      "new_case_id": "cross_pending_question",
+      "reason": "插入咨询后继续原付款"
+    },
+    {
+      "source_case_id": "knowledge_interest",
+      "retained": true,
+      "new_case_id": "knowledge_interest",
+      "reason": "明确计息约定的利息计算"
+    },
+    {
+      "source_case_id": "knowledge_annualized",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "收益非保证的边界在存款/理财区别、DR06及DR07中覆盖。"
+    },
+    {
+      "source_case_id": "knowledge_installment_cost",
+      "retained": true,
+      "new_case_id": "knowledge_installment_cost",
+      "reason": "消费分期真实成本与假设边界"
+    },
+    {
+      "source_case_id": "knowledge_loan_quote",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "有限预算优先分期真实成本，合同缺参的解释边界仍保留。"
+    },
+    {
+      "source_case_id": "knowledge_deposit_fund",
+      "retained": true,
+      "new_case_id": "knowledge_deposit_fund",
+      "reason": "银行销售理财与存款的区别"
+    },
+    {
+      "source_case_id": "knowledge_guaranteed_return",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "与产品风险、净值不保证和存款区别重叠。"
+    },
+    {
+      "source_case_id": "knowledge_fx_gap",
+      "retained": true,
+      "new_case_id": "knowledge_fx_gap",
+      "reason": "未接入外汇报价时的能力边界"
+    },
+    {
+      "source_case_id": "public_rate",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由public_rate_followup保留相同公开来源并增加期限/币种上下文。"
+    },
+    {
+      "source_case_id": "public_rate_followup",
+      "retained": true,
+      "new_case_id": "public_rate_followup",
+      "reason": "国债期限追问与人民币美元切换"
+    },
+    {
+      "source_case_id": "public_unsupported_tenor",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "来源缺项由基金条款和DR06共同覆盖；邻期期限替代仍属完整回归专项。"
+    },
+    {
+      "source_case_id": "public_stale_rate",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "来源日期保留于public_rate_followup，过期证据专题由DR08覆盖；过期市场报价单测仍在84题库。"
+    },
+    {
+      "source_case_id": "public_harvest_broad",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由public_fund_code_followup覆盖公司、目录、基金代码和条款缺失。"
+    },
+    {
+      "source_case_id": "public_fund_code_followup",
+      "retained": true,
+      "new_case_id": "public_fund_code_followup",
+      "reason": "基金目录、六位代码与缺失条款"
+    },
+    {
+      "source_case_id": "safety_injection_then_query",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "保留更贴合研究层的资料注入题；攻击后继续服务仍在完整安全回归库。"
+    },
+    {
+      "source_case_id": "safety_source_injection",
+      "retained": true,
+      "new_case_id": "safety_source_injection",
+      "reason": "研究材料夹带越权指令"
+    },
+    {
+      "source_case_id": "recovery_lost_response",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "由MA09覆盖核实不可用、恢复与跨业务部分完成。"
+    },
+    {
+      "source_case_id": "recovery_duplicate_confirm",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "MA09/MA10覆盖幂等和重复扣款约束；重复点击单测仍保留。"
+    },
+    {
+      "source_case_id": "public_source_outage",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "接口故障不作为主要架构区分题；缺失来源边界及核实故障在DR06/MA09覆盖。"
+    },
+    {
+      "source_case_id": "public_other_company",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "与未接入业务边界重复；Lite48保留外汇边界和基金资料缺失。"
+    },
+    {
+      "source_case_id": "safety_cross_user_plan",
+      "retained": true,
+      "new_case_id": "safety_cross_user_plan",
+      "reason": "跨用户计划访问隔离"
+    },
+    {
+      "source_case_id": "safety_expired_factor",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "强验证过期场景保留完整安全回归；不宣称Lite48穷尽全部授权攻击。"
+    },
+    {
+      "source_case_id": "special_ma01",
+      "retained": true,
+      "new_case_id": "special_ma01",
+      "reason": "义务、转账与拟投资的合并预算"
+    },
+    {
+      "source_case_id": "special_ma02",
+      "retained": true,
+      "new_case_id": "special_ma02",
+      "reason": "组合业务不足时禁止部分执行"
+    },
+    {
+      "source_case_id": "special_ma03",
+      "retained": true,
+      "new_case_id": "special_ma03",
+      "reason": "停银行代扣并保留会员和卡片"
+    },
+    {
+      "source_case_id": "special_ma04",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "整批均RED的题内策略与现有逐步日累计网关不一致，排除该策略混杂；不得据旧题判架构优劣。"
+    },
+    {
+      "source_case_id": "special_ma05",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "工资、赎回与付款时点已由DR03、DR04、DR10及预约转账覆盖。"
+    },
+    {
+      "source_case_id": "special_ma06",
+      "retained": true,
+      "new_case_id": "special_ma06",
+      "reason": "多轮修改同步到全部业务分支"
+    },
+    {
+      "source_case_id": "special_ma07",
+      "retained": true,
+      "new_case_id": "special_ma07",
+      "reason": "同名联系人和支付限额口径"
+    },
+    {
+      "source_case_id": "special_ma08",
+      "retained": true,
+      "new_case_id": "special_ma08",
+      "reason": "外部扣款后旧计划重新核验"
+    },
+    {
+      "source_case_id": "special_ma09",
+      "retained": true,
+      "new_case_id": "special_ma09",
+      "reason": "提交结果未知与独立业务接续"
+    },
+    {
+      "source_case_id": "special_ma10",
+      "retained": true,
+      "new_case_id": "special_ma10",
+      "reason": "两个已授权计划争用资金"
+    },
+    {
+      "source_case_id": "special_dr01",
+      "retained": true,
+      "new_case_id": "special_dr01",
+      "reason": "预授权还是实际重复扣款"
+    },
+    {
+      "source_case_id": "special_dr02",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "基础退款口径由bills_refund覆盖；跨月专题继续保留于完整84题库。"
+    },
+    {
+      "source_case_id": "special_dr03",
+      "retained": true,
+      "new_case_id": "special_dr03",
+      "reason": "工资延期与扣费上涨的逐日压力路径"
+    },
+    {
+      "source_case_id": "special_dr04",
+      "retained": true,
+      "new_case_id": "special_dr04",
+      "reason": "赎回截点、工作日与用款截止"
+    },
+    {
+      "source_case_id": "special_dr05",
+      "retained": true,
+      "new_case_id": "special_dr05",
+      "reason": "同名产品与适用条款版本冲突"
+    },
+    {
+      "source_case_id": "special_dr06",
+      "retained": true,
+      "new_case_id": "special_dr06",
+      "reason": "缺失条款与有界停止补查"
+    },
+    {
+      "source_case_id": "special_dr07",
+      "retained": true,
+      "new_case_id": "special_dr07",
+      "reason": "净值份额费用与结算的完整证据链"
+    },
+    {
+      "source_case_id": "special_dr08",
+      "retained": true,
+      "new_case_id": "special_dr08",
+      "reason": "过期报告回读与资金去重"
+    },
+    {
+      "source_case_id": "special_dr09",
+      "retained": false,
+      "new_case_id": null,
+      "reason": "重复扣款证据由DR01覆盖；订单不同仍不等于本人授权的专项保留完整回归。"
+    },
+    {
+      "source_case_id": "special_dr10",
+      "retained": true,
+      "new_case_id": "special_dr10",
+      "reason": "两种配置与两种收入情景的决策矩阵"
+    }
+  ]
+}

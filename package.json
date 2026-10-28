@@ -1,0 +1,7 @@
+{
+  "name": "jianxing-bank-agent-web",
+  "private": true,
+  "type": "module",
+  "scripts": {"typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.strict.json"},
+  "devDependencies": {"typescript": "5.8.3"}
+}

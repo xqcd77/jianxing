@@ -1,0 +1,18 @@
+[
+  {
+    "family": "Jianxing Text SC",
+    "original_family": "Noto Sans SC",
+    "file": "jianxing-text-sc.woff2",
+    "bytes": 1904344,
+    "source_sha256": "763146584cf0710223441356b4395e279021b0806c196614377a7a0174ae074a",
+    "license_source": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/LICENSE"
+  },
+  {
+    "family": "Jianxing Display SC",
+    "original_family": "Noto Serif SC",
+    "file": "jianxing-display-sc.woff2",
+    "bytes": 87096,
+    "source_sha256": "a4aed9985a5916fbf6690456f8732a9fccd517938e353165d4142b4f11a39280",
+    "license_source": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Serif/LICENSE"
+  }
+]

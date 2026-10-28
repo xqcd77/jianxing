@@ -1,0 +1,127 @@
+{
+  "at": "2026-10-24T10:34:51.219934+00:00",
+  "ui_url": "http://127.0.0.1:8000/",
+  "restored": "品牌及页面说明、业务入口描述、余额说明、研究层级与办理引导",
+  "visual_checks": {
+    "at": "2026-10-24T10:33:40.851Z",
+    "records": [
+      {
+        "width": 1440,
+        "animatedLogin": true,
+        "spin2s": true,
+        "hoverAlpha80": true,
+        "keyboardFocus": true,
+        "restoredInformation": true,
+        "cardTilt": true,
+        "noHorizontalOverflow": true,
+        "logout": true
+      },
+      {
+        "width": 390,
+        "animatedLogin": true,
+        "spin2s": true,
+        "hoverAlpha80": true,
+        "keyboardFocus": true,
+        "restoredInformation": true,
+        "cardTilt": true,
+        "noHorizontalOverflow": true,
+        "logout": true
+      }
+    ],
+    "reducedMotion": true,
+    "javascriptErrors": []
+  },
+  "chat_regression": {
+    "at": "2026-10-24T10:31:42.723Z",
+    "records": [
+      {
+        "scenario": "实际阶段、逐字显示、自动收起、展开记录与跳过动画",
+        "passed": true,
+        "widths": [
+          1440,
+          390
+        ]
+      },
+      {
+        "scenario": "停止任务后收起记录并展示实际状态",
+        "passed": true
+      },
+      {
+        "scenario": "断线重连后恢复真实步骤与答案",
+        "passed": true
+      },
+      {
+        "scenario": "刷新后恢复后台请求和步骤记录",
+        "passed": true
+      },
+      {
+        "scenario": "研究仍在运行时保持步骤，并可单独停止分析",
+        "passed": true
+      },
+      {
+        "scenario": "研究任务结束后才收起并输出结论",
+        "passed": true
+      },
+      {
+        "scenario": "办理卡片先可用，混合研究继续更新步骤",
+        "passed": true
+      },
+      {
+        "scenario": "逐字显示期间刷新仍可恢复完整答案",
+        "passed": true
+      },
+      {
+        "scenario": "减少动态效果时直接展示完整答案",
+        "passed": true
+      }
+    ],
+    "javascriptErrors": []
+  },
+  "multigoal_regression": {
+    "at": "2026-10-24T10:31:58.681Z",
+    "records": [
+      {
+        "width": 1440,
+        "multipleTransfers": true,
+        "confirmationAndMfa": true,
+        "automaticAssessment": true,
+        "prerequisiteReload": true,
+        "returnToOriginalPlan": true,
+        "noDuplicateTransfer": true,
+        "structuredResearch": true,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "multipleTransfers": true,
+        "confirmationAndMfa": true,
+        "automaticAssessment": true,
+        "prerequisiteReload": true,
+        "returnToOriginalPlan": true,
+        "noDuplicateTransfer": true,
+        "structuredResearch": true,
+        "noOverflow": true
+      }
+    ]
+  },
+  "static_checks": {
+    "typescript": "passed",
+    "typescript_strict": "passed",
+    "modified_file_whitespace": "passed"
+  },
+  "assets": {
+    "premium.css": 200,
+    "premium.js": 200,
+    "index.html": 200
+  },
+  "health": "ok",
+  "screenshots": [
+    ".data/premium-login-1440.png",
+    ".data/premium-login-390.png",
+    ".data/premium-login-focus-1440.png",
+    ".data/premium-workspace-1440.png",
+    ".data/premium-workspace-390.png"
+  ],
+  "test_environment": "隔离演示数据；主应用账户未执行回归交易",
+  "scope_note": "本轮仅改界面、视觉交互和验收；未重新执行全量后台回归。"
+}

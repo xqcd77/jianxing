@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-10-18",
+  "sources": [
+    {
+      "name": "OpenThoughts-TBLite",
+      "url": "https://github.com/open-thoughts/OpenThoughts-TBLite",
+      "reference": "以Claude Haiku 4.5参考通过率划分Easy>=70%、Medium 40–69%、Hard 10–39%、Extreme<10%；100题，40/26/26/8。",
+      "adoption": "借鉴精简、覆盖与经验校准；本项目Expert是结构标签，不冒称已达到其Extreme参考成功率区间。"
+    },
+    {
+      "name": "τ-Knowledge / τ³-Banking",
+      "url": "https://taubench.com/blog/tau-knowledge.html",
+      "reference": "知识检索、规则应用、受控用户状态变化与可验证最终数据库状态；未采用本项目四档难度分类。",
+      "adoption": "原始证据—规则应用—用户授权—实际状态核验；研究任务按只读答案与不写入核验，执行任务检查实际回执。"
+    },
+    {
+      "name": "FinGAIA",
+      "url": "https://arxiv.org/html/2507.17186v2",
+      "reference": "三级场景：基础业务分析、资产决策支持、战略风险管理；文中分别描述通常<=5步/1–2工具、5–7步/>2工具、约10步/多工具。",
+      "adoption": "借鉴金融任务深度与跨来源综合；工具数量只是参考，不规定必须调用几个Agent或工具。"
+    }
+  ]
+}

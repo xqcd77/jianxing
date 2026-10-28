@@ -1,0 +1,1526 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-24T16:12:54.055496+00:00",
+  "variant": "S_AGENT",
+  "run_root": ".data/evaluation/sa10_1025",
+  "manifest": {
+    "suite": "bankflow-lite58-v1-20261024",
+    "suite_selection": "lite58",
+    "cases": [
+      "complex_c01",
+      "complex_c02",
+      "complex_c03",
+      "complex_c04",
+      "complex_c05",
+      "complex_c06",
+      "complex_c07",
+      "complex_c08",
+      "complex_c09",
+      "complex_c10"
+    ],
+    "variants": [
+      "S_AGENT"
+    ],
+    "trials": 1,
+    "source_hash": "d1dcc5740b8d1cc1a9560d222e7274715bfa067e6179d41ca6ffad15aad4f240",
+    "dataset_hash": "4e4e5c2d068eecbd9d67e7aee08489855110bf406b0af016e70807f1b78f980b",
+    "mode": "llm",
+    "memory": "fastembed",
+    "rules_version": "bank-rules-v3",
+    "judge": {
+      "provider": "mimo",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.6-pro",
+      "thinking": false,
+      "max_completion_tokens": 4096,
+      "timeout": 240.0,
+      "format_retries": 2,
+      "rpm": 20,
+      "concurrency": 2
+    },
+    "execution_workers": 3,
+    "sut_model": "deepseek-flash",
+    "sut_thinking": true,
+    "sut_effort": "max",
+    "sut_max_output_tokens": 16384,
+    "runtime_contract": {
+      "model_timeout": 120.0,
+      "memory_model": "BAAI/bge-small-zh-v1.5",
+      "memory_top_k": 6,
+      "memory_context_chars": 6000,
+      "max_replans": 3,
+      "research_max_rounds": 2,
+      "research_concurrency": 3,
+      "research_timeout": 300.0,
+      "demo_enabled": true,
+      "demo_verification_enabled": true,
+      "agent_runtime": "agents_sdk",
+      "memory_backend": "chroma",
+      "model_context_tokens": 131072,
+      "task_token_budget": 1048576
+    },
+    "hard_process_timeout_seconds": 660,
+    "max_model_calls_per_episode": 10,
+    "source_mode": "synthetic_snapshot_not_live_market",
+    "diagnostic_only": true,
+    "human_labels": 0,
+    "public_fixtures_hash": "cbc40127ef5764f9d183af6b73b8b95a871986e8631d62dc279f9e43085a2c09",
+    "predeclared_subsets": {
+      "original48": [],
+      "complex10": [
+        "complex_c01",
+        "complex_c02",
+        "complex_c03",
+        "complex_c04",
+        "complex_c05",
+        "complex_c06",
+        "complex_c07",
+        "complex_c08",
+        "complex_c09",
+        "complex_c10"
+      ]
+    },
+    "architecture_comparison": {
+      "version": "bankflow-architecture-v1",
+      "seed": 20261017,
+      "definitions": {
+        "S_AGENT": "统一领域提议＋单通才研究角色、单轮完整取证；共用约束解析与安全网关"
+      },
+      "interventions": {
+        "S_AGENT": {
+          "domain_proposals": "unified_rules",
+          "research_decision_roles": "one_generalist",
+          "evidence": "complete_first_pass",
+          "research_rounds": 1
+        }
+      },
+      "research_subset": [],
+      "shared": [
+        "model_and_per_call_budget",
+        "typed_constraint_parser",
+        "tool_capability_set",
+        "bank_permissions_and_rules",
+        "verifier_and_report_renderer",
+        "memory_strategy",
+        "initial_financial_fixtures",
+        "per_episode_model_call_ceiling"
+      ],
+      "scope": "single versus split research decision roles; not one total LLM call or unconstrained autonomous agents",
+      "actual_compute_equalized": false,
+      "evidence_difference_intentional": "one_pass_receives_all_evidence; C_can_retrieve_it_in_bounded_followups",
+      "quality_dependency": "verified claims and most report text are deterministic in all arms; role effects may be limited"
+    },
+    "manifest_hash": "1e5135a22c3acd6c27fa3bc4984478c5ae560e9dbc2b8258f309d9494b2d2827",
+    "created_at": "2026-10-24T16:06:44.536238+00:00"
+  },
+  "weights": {
+    "coverage": 2,
+    "banking_correctness": 2,
+    "evidence_reasoning": 1,
+    "actionability": 1,
+    "clarity": 1
+  },
+  "historical48": {
+    "source": "evaluation/published/bankflow_lite48_20261018/single-agent.json",
+    "source_sha256": "15053254638a9b0836de81484b8da98e9c731182bc64263790b69c689d6a4d49",
+    "source_metadata": {
+      "report_file": "report_dom_v8_S_AGENT.json",
+      "report_sha256": "efb1a4743e197d29a5810b27e4e4be6c7a649c4b512cbcc6573e3e40ae5c7114",
+      "source_hash": "c21d61b0bd06287429a8f34a638d7344befc85470706d97f7c55f6abcef8158e",
+      "manifest_sha256": "a681a48d177d9453800d4ba2d1dc6c0dbe7b45988f2ef608a680bc065686cf08",
+      "ui_replay_scope": "dom_v8"
+    },
+    "judge_prompt_hash": "9d7da18e20629f0717847213d6a73c349d93c177877b6c4d0e6cfb92fda04b39",
+    "summary": {
+      "cases": 48,
+      "strict_passed": 32,
+      "strict_failed": 16,
+      "unresolved": 0,
+      "pass_rate_lower_bound": 0.6666666666666666,
+      "pass_rate_upper_bound": 0.6666666666666666,
+      "judge_valid": 48,
+      "judge_missing": 0,
+      "hard_checks_passed": 46,
+      "dimension_means": {
+        "coverage": {
+          "sum": 183,
+          "n": 48,
+          "mean": 3.8125
+        },
+        "banking_correctness": {
+          "sum": 195,
+          "n": 46,
+          "mean": 4.2391
+        },
+        "evidence_reasoning": {
+          "sum": 73,
+          "n": 24,
+          "mean": 3.0417
+        },
+        "actionability": {
+          "sum": 181,
+          "n": 48,
+          "mean": 3.7708
+        },
+        "clarity": {
+          "sum": 192,
+          "n": 48,
+          "mean": 4.0
+        }
+      },
+      "weighted_score": 3.8451
+    }
+  },
+  "complex10": {
+    "v8": {
+      "summary": {
+        "cases": 10,
+        "strict_passed": 10,
+        "strict_failed": 0,
+        "unresolved": 0,
+        "pass_rate_lower_bound": 1.0,
+        "pass_rate_upper_bound": 1.0,
+        "judge_valid": 10,
+        "judge_missing": 0,
+        "hard_checks_passed": 10,
+        "dimension_means": {
+          "coverage": {
+            "sum": 50,
+            "n": 10,
+            "mean": 5.0
+          },
+          "banking_correctness": {
+            "sum": 50,
+            "n": 10,
+            "mean": 5.0
+          },
+          "evidence_reasoning": {
+            "sum": 32,
+            "n": 7,
+            "mean": 4.5714
+          },
+          "actionability": {
+            "sum": 48,
+            "n": 10,
+            "mean": 4.8
+          },
+          "clarity": {
+            "sum": 47,
+            "n": 10,
+            "mean": 4.7
+          }
+        },
+        "weighted_score": 4.8673
+      },
+      "cases": [
+        {
+          "case_id": "complex_c01",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c01",
+          "completion_target": "prepare",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "三目标与能力边界",
+          "weighted_score": 4.8571,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "002f46b0108ab26ba03a3038899f454ebb8fac24bcfaf752d6018371d36fd0a8"
+        },
+        {
+          "case_id": "complex_c02",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c02",
+          "completion_target": "prepare",
+          "resolution": "clarified",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 4,
+            "clarity": 4
+          },
+          "failure_modes": [],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "新卡指代与产品语义",
+          "weighted_score": 4.6667,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "c86ff0f6e51abe5e2399c637ccfea32233483174d8896cbcb69c2480718f84af"
+        },
+        {
+          "case_id": "complex_c03",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "medium",
+          "family": "complex_request_c03",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "相对金额与直接路由",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "1b6bd79185b404f017cca8a09f33042833697e4727c28c8e6bf60b1074131cb0"
+        },
+        {
+          "case_id": "complex_c04",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c04",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "冻结资金与比例计算",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "bdbf3407374fd420672ab2d6ae1833fb132e88b5c0b26496efda488a228da9db"
+        },
+        {
+          "case_id": "complex_c05",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c05",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "顺序计算与多收款人",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "bd7ca27bbf9c43524e5ef2a638b9591487786876d9f6e6428839c772ccab5663"
+        },
+        {
+          "case_id": "complex_c06",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c06",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "总资金、动作金额、每次投入",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "78b2fbba5501b7e6228e0c9eab12ef70ed47d68ad83faceaf919dd20e76528fb"
+        },
+        {
+          "case_id": "complex_c07",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c07",
+          "completion_target": "prepare",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "多轮纠正与原任务保留",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "a04af29165d65a8b8bf2bf87fce07026a160c9a2301699d1fb3902f0220b551d"
+        },
+        {
+          "case_id": "complex_c08",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c08",
+          "completion_target": "execute",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "已完成任务与后续补槽",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "6b14a788fdae8f08ab0adbc227e3646807a4f8593b51dff363a195d409b2af6c"
+        },
+        {
+          "case_id": "complex_c09",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c09",
+          "completion_target": "execute",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 4,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "依赖引用与工具约束",
+          "weighted_score": 4.8333,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "a52dd5226b5c0bb6223e154c81c04111e74b4fb9a4a02bc6009358cba22d72e9"
+        },
+        {
+          "case_id": "complex_c10",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c10",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "同句否定、改口与任务覆盖",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "e3018fa14296d999c454a7538af74791a457be3d96fa4e720b3068d4daac4e1d"
+        }
+      ],
+      "efficiency": {
+        "episode_wall_ms": {
+          "n": 10,
+          "p50": 515.5,
+          "p95": 1690.2,
+          "max": 1782.0
+        },
+        "api_service_ms": {
+          "n": 10,
+          "p50": 431.77,
+          "p95": 1687.914,
+          "max": 1782.0
+        },
+        "external_model_calls_known": 0,
+        "model_call_count_unknown_episodes": 0,
+        "episodes_using_model": 0,
+        "memory_backends": {
+          "fastembed": 10
+        },
+        "sut_tokens": {
+          "prompt_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          },
+          "completion_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          },
+          "total_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          }
+        },
+        "judge_attempts": 15,
+        "judge_attempt_ms": {
+          "n": 15,
+          "p50": 12683.76,
+          "p95": 18317.426,
+          "max": 19854.85
+        },
+        "judge_tokens": {
+          "prompt_tokens": {
+            "known_sum": 178746,
+            "missing_records": 0,
+            "complete_total": 178746
+          },
+          "completion_tokens": {
+            "known_sum": 11571,
+            "missing_records": 0,
+            "complete_total": 11571
+          },
+          "total_tokens": {
+            "known_sum": 190317,
+            "missing_records": 0,
+            "complete_total": 190317
+          }
+        },
+        "no_price_or_invoice_estimate": true
+      },
+      "judge_protocol": {
+        "judge": {
+          "provider": "mimo",
+          "base_url": "https://api.xiaomimimo.com/v1",
+          "model": "mimo-v2.6-pro",
+          "thinking": false,
+          "max_completion_tokens": 4096,
+          "timeout": 240.0,
+          "format_retries": 2,
+          "rpm": 20,
+          "concurrency": 2
+        },
+        "prompt_hash": "9d7da18e20629f0717847213d6a73c349d93c177877b6c4d0e6cfb92fda04b39",
+        "scope": "dom_v8",
+        "run_manifest_hash": "1e5135a22c3acd6c27fa3bc4984478c5ae560e9dbc2b8258f309d9494b2d2827",
+        "output_mode": "strict_function_call",
+        "tool_schema_version": "bankflow-v8-dynamic-tool-v1",
+        "retry_policy": {
+          "format": 2,
+          "timeout": 1,
+          "transient": 2,
+          "backoff": "bounded_exponential"
+        }
+      }
+    },
+    "v9": {
+      "summary": {
+        "cases": 10,
+        "strict_passed": 10,
+        "strict_failed": 0,
+        "unresolved": 0,
+        "pass_rate_lower_bound": 1.0,
+        "pass_rate_upper_bound": 1.0,
+        "judge_valid": 10,
+        "judge_missing": 0,
+        "hard_checks_passed": 10,
+        "dimension_means": {
+          "coverage": {
+            "sum": 50,
+            "n": 10,
+            "mean": 5.0
+          },
+          "banking_correctness": {
+            "sum": 50,
+            "n": 10,
+            "mean": 5.0
+          },
+          "evidence_reasoning": {
+            "sum": 30,
+            "n": 7,
+            "mean": 4.2857
+          },
+          "actionability": {
+            "sum": 48,
+            "n": 10,
+            "mean": 4.8
+          },
+          "clarity": {
+            "sum": 43,
+            "n": 10,
+            "mean": 4.3
+          }
+        },
+        "weighted_score": 4.7694
+      },
+      "cases": [
+        {
+          "case_id": "complex_c01",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c01",
+          "completion_target": "prepare",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "三目标与能力边界",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "002f46b0108ab26ba03a3038899f454ebb8fac24bcfaf752d6018371d36fd0a8"
+        },
+        {
+          "case_id": "complex_c02",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c02",
+          "completion_target": "prepare",
+          "resolution": "clarified",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 4,
+            "clarity": 4
+          },
+          "failure_modes": [],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "新卡指代与产品语义",
+          "weighted_score": 4.6667,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "c86ff0f6e51abe5e2399c637ccfea32233483174d8896cbcb69c2480718f84af"
+        },
+        {
+          "case_id": "complex_c03",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "medium",
+          "family": "complex_request_c03",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 4,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "相对金额与直接路由",
+          "weighted_score": 4.8333,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "1b6bd79185b404f017cca8a09f33042833697e4727c28c8e6bf60b1074131cb0"
+        },
+        {
+          "case_id": "complex_c04",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c04",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "冻结资金与比例计算",
+          "weighted_score": 5.0,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "bdbf3407374fd420672ab2d6ae1833fb132e88b5c0b26496efda488a228da9db"
+        },
+        {
+          "case_id": "complex_c05",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c05",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 5
+          },
+          "failure_modes": [],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "顺序计算与多收款人",
+          "weighted_score": 4.8571,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "bd7ca27bbf9c43524e5ef2a638b9591487786876d9f6e6428839c772ccab5663"
+        },
+        {
+          "case_id": "complex_c06",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c06",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "总资金、动作金额、每次投入",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "78b2fbba5501b7e6228e0c9eab12ef70ed47d68ad83faceaf919dd20e76528fb"
+        },
+        {
+          "case_id": "complex_c07",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c07",
+          "completion_target": "prepare",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "多轮纠正与原任务保留",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "a04af29165d65a8b8bf2bf87fce07026a160c9a2301699d1fb3902f0220b551d"
+        },
+        {
+          "case_id": "complex_c08",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c08",
+          "completion_target": "execute",
+          "resolution": "capability_gap",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 5,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": false,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "已完成任务与后续补槽",
+          "weighted_score": 4.8571,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "6b14a788fdae8f08ab0adbc227e3646807a4f8593b51dff363a195d409b2af6c"
+        },
+        {
+          "case_id": "complex_c09",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "expert",
+          "family": "complex_request_c09",
+          "completion_target": "execute",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "other"
+          ],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "依赖引用与工具约束",
+          "weighted_score": 4.8333,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "a52dd5226b5c0bb6223e154c81c04111e74b4fb9a4a02bc6009358cba22d72e9"
+        },
+        {
+          "case_id": "complex_c10",
+          "domain": "跨业务协作与统一资金",
+          "difficulty": "hard",
+          "family": "complex_request_c10",
+          "completion_target": "prepare",
+          "resolution": "fulfilled",
+          "trial": 1,
+          "invariant_safe": true,
+          "state_assertions_pass": true,
+          "objective_checks_pass": true,
+          "typed_fact_violations": [],
+          "response_present": true,
+          "llm_exercised": false,
+          "sut_error": null,
+          "judge_status": "ok",
+          "status": "passed",
+          "semantic_credit": 1.0,
+          "scores": {
+            "coverage": 5,
+            "banking_correctness": 5,
+            "evidence_reasoning": 4,
+            "actionability": 5,
+            "clarity": 4
+          },
+          "failure_modes": [
+            "unsupported_claim"
+          ],
+          "goal_fulfilled": true,
+          "handled_as_expected": true,
+          "no_answer_utility": null,
+          "title": "同句否定、改口与任务覆盖",
+          "weighted_score": 4.7143,
+          "model_call_count": 0,
+          "persisted_agent_run_count": 0,
+          "business_tokens": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 0
+          },
+          "memory_backend": "fastembed",
+          "hard_failures": [],
+          "semantic_gaps": [],
+          "episode_sha256": "e3018fa14296d999c454a7538af74791a457be3d96fa4e720b3068d4daac4e1d"
+        }
+      ],
+      "efficiency": {
+        "episode_wall_ms": {
+          "n": 10,
+          "p50": 515.5,
+          "p95": 1690.2,
+          "max": 1782.0
+        },
+        "api_service_ms": {
+          "n": 10,
+          "p50": 431.77,
+          "p95": 1687.914,
+          "max": 1782.0
+        },
+        "external_model_calls_known": 0,
+        "model_call_count_unknown_episodes": 0,
+        "episodes_using_model": 0,
+        "memory_backends": {
+          "fastembed": 10
+        },
+        "sut_tokens": {
+          "prompt_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          },
+          "completion_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          },
+          "total_tokens": {
+            "known_sum": 0,
+            "missing_records": 0,
+            "complete_total": 0
+          }
+        },
+        "judge_attempts": 13,
+        "judge_attempt_ms": {
+          "n": 13,
+          "p50": 13786.82,
+          "p95": 15821.144,
+          "max": 15849.83
+        },
+        "judge_tokens": {
+          "prompt_tokens": {
+            "known_sum": 191368,
+            "missing_records": 0,
+            "complete_total": 191368
+          },
+          "completion_tokens": {
+            "known_sum": 10715,
+            "missing_records": 0,
+            "complete_total": 10715
+          },
+          "total_tokens": {
+            "known_sum": 202083,
+            "missing_records": 0,
+            "complete_total": 202083
+          }
+        },
+        "no_price_or_invoice_estimate": true
+      },
+      "judge_protocol": {
+        "judge": {
+          "provider": "mimo",
+          "base_url": "https://api.xiaomimimo.com/v1",
+          "model": "mimo-v2.6-pro",
+          "thinking": false,
+          "max_completion_tokens": 4096,
+          "timeout": 240.0,
+          "format_retries": 2,
+          "rpm": 20,
+          "concurrency": 2
+        },
+        "prompt_hash": "92cdbfbf747d1afbc204db59618b7076a5c895831a5207b2217e32a600898857",
+        "scope": "dom_v9",
+        "run_manifest_hash": "1e5135a22c3acd6c27fa3bc4984478c5ae560e9dbc2b8258f309d9494b2d2827",
+        "output_mode": "strict_function_call",
+        "tool_schema_version": "bankflow-v9-dynamic-tool-v1",
+        "retry_policy": {
+          "format": 2,
+          "timeout": 1,
+          "transient": 2,
+          "backoff": "bounded_exponential"
+        }
+      }
+    }
+  },
+  "combined58_v8_historical_reference": {
+    "cases": 58,
+    "strict_passed": 42,
+    "strict_failed": 16,
+    "unresolved": 0,
+    "pass_rate_lower_bound": 0.7241379310344828,
+    "pass_rate_upper_bound": 0.7241379310344828,
+    "judge_valid": 58,
+    "judge_missing": 0,
+    "hard_checks_passed": 56,
+    "dimension_means": {
+      "coverage": {
+        "sum": 233,
+        "n": 58,
+        "mean": 4.0172
+      },
+      "banking_correctness": {
+        "sum": 245,
+        "n": 56,
+        "mean": 4.375
+      },
+      "evidence_reasoning": {
+        "sum": 105,
+        "n": 31,
+        "mean": 3.3871
+      },
+      "actionability": {
+        "sum": 229,
+        "n": 58,
+        "mean": 3.9483
+      },
+      "clarity": {
+        "sum": 239,
+        "n": 58,
+        "mean": 4.1207
+      }
+    },
+    "weighted_score": 4.0344
+  },
+  "previous_supervisor_complex10_v9_reference": {
+    "expected_handling": {
+      "expected": 10,
+      "observed": 10,
+      "passed": 10,
+      "failed": 0,
+      "pending_or_unresolved": 0,
+      "pass_rate_lower_bound": 1.0,
+      "pass_rate_upper_bound": 1.0
+    },
+    "not_a_global_model_accuracy": true,
+    "safety": {
+      "violations": 0,
+      "observed_invariant_checks": 10,
+      "unknown": 0
+    },
+    "no_answer_count": 0,
+    "answer_measurement_missing": 0,
+    "capability_gap_tasks": 3,
+    "business_completion": {
+      "requested": 2,
+      "fulfilled": 1
+    },
+    "quality_means_judged_only": {
+      "coverage": {
+        "mean": 5,
+        "n": 10
+      },
+      "banking_correctness": {
+        "mean": 4.8,
+        "n": 10
+      },
+      "evidence_reasoning": {
+        "mean": 4.2857,
+        "n": 7
+      },
+      "actionability": {
+        "mean": 5,
+        "n": 10
+      },
+      "clarity": {
+        "mean": 4.3,
+        "n": 10
+      }
+    },
+    "judge_valid": 10,
+    "judge_error": 0,
+    "observed_statuses": {
+      "passed": 10
+    },
+    "failure_modes": {
+      "unsupported_claim": 1
+    },
+    "groups": {
+      "domain": {
+        "跨业务协作与统一资金": {
+          "expected": 10,
+          "observed": 10,
+          "passed": 10,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        }
+      },
+      "difficulty": {
+        "hard": {
+          "expected": 6,
+          "observed": 6,
+          "passed": 6,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        },
+        "medium": {
+          "expected": 1,
+          "observed": 1,
+          "passed": 1,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        },
+        "expert": {
+          "expected": 3,
+          "observed": 3,
+          "passed": 3,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        }
+      },
+      "completion_target": {
+        "prepare": {
+          "expected": 8,
+          "observed": 8,
+          "passed": 8,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        },
+        "execute": {
+          "expected": 2,
+          "observed": 2,
+          "passed": 2,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        }
+      },
+      "llm_exercised": {
+        "False": {
+          "expected": 7,
+          "observed": 7,
+          "passed": 7,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        },
+        "True": {
+          "expected": 3,
+          "observed": 3,
+          "passed": 3,
+          "failed": 0,
+          "pending_or_unresolved": 0,
+          "pass_rate_lower_bound": 1.0,
+          "pass_rate_upper_bound": 1.0
+        }
+      }
+    },
+    "weighted_quality_5": 4.7408,
+    "state_checks_passed": 10
+  },
+  "limits": [
+    "58题是历史48题与本次10题的跨源码、记忆配置拼接参考，不是当前Single Agent完整58题复测。",
+    "v8与历史48题Prompt哈希及MiMo评分配置一致；v9单独报告，绝不把新v9与旧v8拼成同口径总分。",
+    "S_AGENT为既有统一提议与单通才单轮研究基线，共用约束解析、银行规则、权限与网关；不意味着整个程序只能调用模型一次。",
+    "本次10题全部由共用确定性入口/服务完成，业务模型调用为0；题目不能识别单、多Agent模型决策差异。",
+    "每题一次业务运行，失败和未决保留；不是盲测、生产可靠性或纯架构因果结论。"
+  ]
+}

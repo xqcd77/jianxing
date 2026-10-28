@@ -1,0 +1,24 @@
+{
+  "judge": {
+    "provider": "mimo",
+    "base_url": "https://api.xiaomimimo.com/v1",
+    "model": "mimo-v2.6-pro",
+    "thinking": false,
+    "max_completion_tokens": 8192,
+    "timeout": 240.0,
+    "format_retries": 2,
+    "rpm": 20,
+    "concurrency": 2
+  },
+  "prompt_hash": "631b456ff4b1dbfb54c8903849a7f04cf9481654e8e5147fb0e327fdf2961715",
+  "scope": "dom_v12",
+  "run_manifest_hash": "d58dcbe427c83b95faae0e27490e8f3fe562926ee67d364ee25a560937f418f9",
+  "output_mode": "strict_function_call",
+  "tool_schema_version": "bankflow-v12-dynamic-tool-v1",
+  "retry_policy": {
+    "format": 2,
+    "timeout": 1,
+    "transient": 2,
+    "backoff": "bounded_exponential"
+  }
+}
