@@ -6,6 +6,10 @@
 *.json text eol=lf
 *.png binary
 *.jpg binary
+*.webp binary
+*.pdf binary
+*.pptx binary
+*.woff2 binary
 
 # Frozen benchmark manifests hash the exact bytes, including line endings.
 evaluation/cases/** -text
