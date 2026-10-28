@@ -101,6 +101,8 @@ LangGraph控制任务流与检查点，Agents SDK执行结构化角色调用，H
 | --- | --- |
 | ![依赖](docs/assets/screenshots/12-allocation.webp) | ![ETF](docs/assets/screenshots/13-etf-information.webp) |
 
+![用户模型配置与历史会话入口](docs/assets/screenshots/15-model-selection.png)
+
 历史会话、记忆管理、上下文容量和用户模型配置已接入当前代码。公开步骤展示实际运行阶段，支持停止尚未提交的任务，已提交业务需查询回执。
 
 ## 评测结果
@@ -130,6 +132,12 @@ npm run typecheck
 
 真实模型评测会消耗业务模型及裁判额度，运行方法见[测试说明](docs/submission/testing.md)。`tests/`提供自动化用例，`evaluation/cases/bankflow_lite66/`提供66题任务与隔离金标。密钥、账户数据库和运行缓存不在仓库中。
 
+## 参赛材料
+
+[200字内简介](docs/submission/project-brief.txt) · [A1架构海报](docs/submission/assets/jianxing-poster-a1.pdf) · [答辩PPT](docs/submission/assets/jianxing-defense.pptx) · [答辩预览](docs/submission/assets/jianxing-defense-preview.pdf)
+
+![简行架构海报](docs/assets/jianxing-poster.webp)
+
 ## 安全与交付
 
 [安全设计](docs/submission/security-design.md) · [安全自评与风险清单](docs/submission/security-self-assessment.md) · [答辩演示](docs/submission/demo-guide.md)
@@ -147,4 +155,4 @@ compose.yaml                可选容器部署
 .env.example                无密钥配置模板
 ```
 
-原私有源码仓库迁移至本仓库，早期评测记录只作历史参考。源代码公开供作品审阅，第三方字体和厂标按各自许可证使用；本次未擅自追加开源授权条款。
+本仓库整合原私有源码与公开展示内容，早期评测记录只作历史参考。源代码公开供作品审阅，第三方字体和厂标按各自许可证使用；本次未擅自追加开源授权条款。
