@@ -51,6 +51,41 @@ def test_partial_progress_arrives_before_information_and_has_first_usable_metric
     assert metrics['first_usable']['count']==1 and metrics['first_usable']['avg_ms']<metrics['total']['avg_ms']
 
 
+def test_visible_task_state_always_has_matching_metrics_and_completion_is_once(client,monkeypatch):
+    from contextlib import contextmanager
+    from sqlalchemy import select
+    from bank_agent.storage import RuntimeEvent
+
+    service=client.app.state.chat_tasks
+    task_id='chat_task_atomic_metrics'
+    with service.db.write() as session:
+        session.add(ChatTask(id=task_id,owner_id='u_demo',conversation_id='atomic-metrics',
+            request_key='atomic-metrics',message='查余额',status='RUNNING',worker_id=service.worker_id,
+            created_at=now_iso(),updated_at=now_iso(),
+            lease_until=(datetime.now(timezone.utc)+timedelta(seconds=30)).isoformat()))
+    original_write=service.db.write
+    observed=[]
+
+    @contextmanager
+    def observed_write():
+        with original_write() as session:
+            yield session
+        # Inspect immediately after every commit, before a separate write can hide a race.
+        with service.db.read() as session:
+            row=session.get(ChatTask,task_id)
+            kinds=list(session.scalars(select(RuntimeEvent.kind).where(
+                RuntimeEvent.task_id==task_id,RuntimeEvent.owner_id=='u_demo')))
+            observed.append((row.status,row.first_usable_ms,kinds))
+
+    monkeypatch.setattr(service.db,'write',observed_write)
+    service._publish(task_id,'ready','已核查',{'status':'WAIT_CONFIRM'})
+    service._complete(task_id,'SUCCEEDED',{'status':'WAIT_CONFIRM'},'已完成')
+    service._complete(task_id,'SUCCEEDED',{'status':'WAIT_CONFIRM'},'重复完成')
+    assert observed and all('task.first_usable' in kinds for _,first,kinds in observed if first is not None)
+    assert all('task.finished' in kinds for status,_,kinds in observed if status=='SUCCEEDED')
+    assert observed[-1][2].count('task.first_usable')==observed[-1][2].count('task.finished')==1
+
+
 def test_cancel_stops_remaining_read_and_cancels_only_unsubmitted_plan(client,headers,monkeypatch):
     payroll(client,headers)
     slow_information(client,monkeypatch)

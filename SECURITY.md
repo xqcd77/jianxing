@@ -1,5 +1,5 @@
-# 安全问题反馈
+# 安全反馈
 
-本项目是合成金融沙箱原型，不用于真实资金业务。请先查看docs/submission/security-design.md与security-self-assessment.md。
+本项目为公开源码的合成金融沙箱。请通过维护者私下沟通渠道反馈漏洞，不在Issue、截图或评测记录中上传真实密钥、验证码、账户资料和完整认证日志。
 
-公开Issue只提供脱敏复现步骤，不上传Key、密码、认证器密钥、个人流水或账户数据。敏感漏洞请使用仓库所有者GitHub个人主页所提供的私密联系渠道；当前未指定专用安全邮箱。
+已实现控制见[安全设计](docs/security-design.md)，权限分级见[自评说明](docs/permissions.md)，剩余限制见[风险清单](docs/known-risks.md)。默认本机运行，演示身份及验证码不能用于生产。

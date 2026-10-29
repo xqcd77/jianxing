@@ -14,6 +14,7 @@ from sqlalchemy import select
 from .errors import BankError
 from .memory import SENSITIVE
 from .progress import progress_sink
+from .runtime import append_event
 from .runtime_context import TaskContext, task_state
 from .schemas import ChatRequest, Intent
 from .storage import ChatTask, Document, Plan, now_iso, save_document, uid
@@ -93,7 +94,6 @@ class ChatTaskService:
             return row.message,row.conversation_id,model.data if model and model.owner_id == user_id else {}
 
     def _publish(self, task_id, stage, label, partial=None):
-        first = None
         with self.db.write() as session:
             row = session.get(ChatTask,task_id)
             if not row or row.worker_id != self.worker_id:
@@ -109,11 +109,11 @@ class ChatTaskService:
                 if row.first_usable_ms is None:
                     first = (datetime.now(timezone.utc)-datetime.fromisoformat(row.created_at)).total_seconds()*1000
                     row.first_usable_ms = max(0,first)
+                    append_event(session, 'task.first_usable', row.owner_id, task_id=task_id,
+                                 details={'duration_ms':row.first_usable_ms})
             row.stage, row.label, row.updated_at = stage, label, now_iso()
             row.revision += 1
             row.events = [*row.events[-49:],{'stage':stage,'label':label,'at':row.updated_at}]
-        if first is not None:
-            self.harness.telemetry.emit('task.first_usable',details={'duration_ms':first})
 
     async def _heartbeat(self, task_id):
         while True:
@@ -144,7 +144,9 @@ class ChatTaskService:
             row.status,row.result,row.label = status,result,label
             row.updated_at,row.revision = now_iso(),row.revision+1
             duration = max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(row.created_at)).total_seconds()*1000)
-        self.harness.telemetry.emit('task.finished',details={'duration_ms':duration,'status':status})
+            # Readers must observe the terminal state and its metrics together.
+            append_event(session, 'task.finished', row.owner_id, task_id=task_id,
+                         details={'duration_ms':duration,'status':status})
 
     async def _existing_plan(self, user_id, task_id):
         with self.db.read() as session:

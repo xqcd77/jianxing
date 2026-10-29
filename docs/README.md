@@ -1,17 +1,16 @@
-# 文档导航
+# 简行文档
 
-请先阅读本次交付文档。其他目录中的48题、58题、84题及早期界面记录属于历史过程，不能与当前66题结果混为同一版本。
+只保留当前交付需要的说明。按问题选择文档，主结果统一采用66题冻结诊断。
 
-| 文档 | 用途 |
+| 需要了解什么 | 文档 |
 | --- | --- |
-| [项目介绍](submission/project-introduction.md) | 作品理念、范围和边界 |
-| [核心算法](submission/core-algorithms.md) | 需求拆解、DAG、研究和记忆链路 |
-| [部署说明](submission/deployment.md) | 本地运行、模型配置和Docker |
-| [安全设计](submission/security-design.md) | 权限、授权和数据保护 |
-| [安全自评](submission/security-self-assessment.md) | 实现范围、风险清单和生产前提 |
-| [测试说明](submission/testing.md) | 测试路径、评测口径和复现 |
-| [演示说明](submission/demo-guide.md) | 答辩演示步骤与预期 |
-| [66题结果](lite66-repair-results-2026-10-27.md) | 冻结评测和两个保留失败 |
-| [结构化结果](lite66-repair-summary-2026-10-28.json) | 可复算汇总 |
+| 系统如何分工和运行 | [系统架构](architecture.md) |
+| 多目标 DAG 研究与记忆如何实现 | [核心算法](algorithms.md) |
+| 怎样运行本项目 | [部署说明](deployment.md) |
+| 怎样验证结果 | [测试说明](testing.md)与[评测结果](evaluation.md) |
+| 如何防止越权与未授权付款 | [安全设计](security-design.md) |
+| 权限分级实现和自评 | [权限分级](permissions.md) |
+| 仍有哪些风险和已知问题 | [已知风险清单](known-risks.md) |
+| 怎样在10分钟内演示 | [答辩安排](demo.md) |
 
-架构海报、答辩PPT与文档PDF将在docs/submission/assets中提供。
+架构海报、15页答辩与四部分交付包统一从[公开交付版本](https://github.com/xqcd77/jianxing/releases/tag/submission-2026.10.29)下载。PPT逐页预览见[项目首页](../README.md#十五页项目介绍)。

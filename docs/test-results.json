@@ -1,0 +1,12 @@
+{
+  "tests": 1104,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 4,
+  "passed": 1100,
+  "date": "2026-10-29",
+  "scope": "current cleaned public source offline regression",
+  "ruff": "passed",
+  "typescript": "both configs passed",
+  "new_paid_model_run": false
+}
