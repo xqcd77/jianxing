@@ -8,7 +8,7 @@
 
 OpenAI Agents SDK · LangGraph · ChromaDB · FastAPI
 
-[快速启动](#快速启动) · [架构](#系统架构) · [功能展示](#真实功能展示) · [15页介绍](#十五页项目介绍) · [评测](#评测与验证) · [交付下载](https://github.com/xqcd77/jianxing/releases/tag/submission-2026.10.29)
+[快速启动](#快速启动) · [架构](#系统架构) · [功能展示](#真实功能展示) · [15页介绍](#十五页项目介绍) · [评测](#评测与验证) · [项目下载](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)
 
 </div>
 
@@ -42,15 +42,15 @@ OpenAI Agents SDK · LangGraph · ChromaDB · FastAPI
 
 31项指主菜单入口，不等于31个独立Agent或31种底层工具。以界面入口及服务端能力注册表为准。
 
-## 对应比赛评分的设计
+## 工程目标与验收
 
-| 评分方向 | 具体做法 | 怎么验收 |
+| 工程目标 | 具体做法 | 怎么验收 |
 | --- | --- | --- |
-| 任务完成 40% | 全目标清单、DAG依赖、确定性金额计算、按需工具和逐项回执 | 不漏目标、不错绑金额、有据可查；按状态和账本核对实际完成 |
-| 安全合规 30% | 所有权检查、分级授权、参数版本绑定、凭证保护与不可信证据隔离 | 诱导话术不能授权；越权、信息套取和注入不能改写执行权限 |
-| 创新与交互 30% | 直接办理连接研究决策、口语输入与缺项追问、历史续办、停止与异常恢复 | 已填复用，条件缺失有入口，超范围给出明确边界，不伪造成功 |
+| 任务完成 | 全目标清单、DAG依赖、确定性金额计算、按需工具和逐项回执 | 不漏目标、不错绑金额、有据可查；按状态和账本核对实际完成 |
+| 安全与权限 | 所有权检查、分级授权、参数版本绑定、凭证保护与不可信证据隔离 | 诱导话术不能授权；越权、信息套取和注入不能改写执行权限 |
+| 交互与恢复 | 直接办理连接研究决策、口语输入与缺项追问、历史续办、停止与异常恢复 | 已填复用，条件缺失有入口，超范围给出明确边界，不伪造成功 |
 
-此表说明设计与证据，不代表大赛已评分。详见[测试说明](docs/testing.md)、[安全设计](docs/security-design.md)和[自评风险](docs/known-risks.md)。
+实现与验证见[测试说明](docs/testing.md)、[安全设计](docs/security-design.md)和[自评风险](docs/known-risks.md)。
 
 ## 系统架构
 
@@ -91,23 +91,23 @@ flowchart TD
 
 [详细架构](docs/architecture.md) · [算法说明](docs/algorithms.md) · [权限分级](docs/permissions.md)
 
-<details>
-<summary>查看作者完成的系统架构海报</summary>
+### 本项目架构海报
 
-![架构与评测海报](docs/assets/poster.webp)
-
-</details>
+![本项目架构海报](docs/assets/poster.webp)
 
 ## 真实功能展示
 
 以下截图来自实际本地界面，使用隔离合成数据；部分研究资料为固定夹具。截图展示某一时刻，不表示实时金融数据或所有任务已执行。
 
-<details>
-<summary>查看登录界面</summary>
+### 登录界面
 
-![登录](docs/assets/screenshots/01-login.webp)
+![简行登录界面](docs/assets/screenshots/login.webp)
 
-</details>
+### 手机版工作台
+
+桌面与手机使用同一套业务流程，移动端将余额、业务入口与对话按单列排列。
+
+<img src="docs/assets/screenshots/mobile-workspace.webp" alt="手机版工作台" width="420">
 
 ### 多目标办理与任务进度
 
@@ -115,11 +115,29 @@ flowchart TD
 
 每项需求单独保留状态、缺项和下一步。独立任务分别推进，完成回执随任务保存。
 
-### Deep Research报告
+### Deep Research：从资金需求到可核查的报告
 
-![研究报告](docs/assets/screenshots/research.webp)
+**研究条件**：明确投资金额、生活费预留、应急金及用款日期，分析前保留资金约束。
 
-报告区分资金结论、风险及流动性条件、比较依据与未知项。选择方案后进入办理，报告本身不授权。
+![研究条件配置](docs/assets/screenshots/research-setup.webp)
+
+**报告全貌**：先看结论与资金数字，再看收支、风险及流动性，最后选择下一步。
+
+![研究报告全貌](docs/assets/screenshots/research.webp)
+
+**分析框架**：展开账单与理财两个方向的核查，分别查看事实、推算、限制和来源。
+
+![深度研究分析框架](docs/assets/screenshots/research-analysis.webp)
+
+**产品对比**：并列显示风险、起购、锁定期、赎回与费用，并说明不满足条件的产品。
+
+![产品条件对比](docs/assets/screenshots/research-products.webp)
+
+**原文回查**：从报告直接打开产品条款和证据。选定方案后进入办理，仍按本次参数核对授权。
+
+![研究来源与产品条款](docs/assets/screenshots/research-evidence.webp)
+
+以上新增截图来自本地规则演示的实际运行；开放式模型研究使用同一界面呈现角色结论与证据。
 
 ### 大额确认与风险测评
 
@@ -164,7 +182,7 @@ flowchart TD
 | 资金与授权不变量违规 | 本次未观察到 |
 | 有效失败 / 未决 | 2 / 0 |
 
-严格通过包含正确拒绝和条件解释，**不能将96.97%写成交易办结率**。22个执行任务中3个条件不符、2个能力缺口没有完成交易。五维权重为任务覆盖2、业务正确性2、证据推理1、可执行性1、表达清晰度1，N/A不补满分，与大赛40/30/30分项不混算。
+22个执行任务中3个条件不符、2个能力缺口没有完成交易。五维权重为任务覆盖2、业务正确性2、证据推理1、可执行性1、表达清晰度1，N/A不补满分。
 
 保留两项失败：基金续问的分项条款回应不完整；会员按月付条件已保存但未明确展示。题集参与开发、每题单次执行，本轮未重跑Single-Agent；不把旧版本提升数字用于当前结果，也不表示生产可靠性。
 
@@ -172,24 +190,21 @@ flowchart TD
 
 ## 快速启动
 
-Python 3.12或以上。规则演示无需模型Key，适合体验确定性业务与UI；开放式自然语言需配置真实模型。
+安装 Python 3.12 或以上后执行以下命令。首次运行会自动创建虚拟环境、安装依赖并生成默认配置；已有 `.env` 会保留。规则演示无需模型 Key，开放式自然语言需配置真实模型。
 
 ```powershell
 git clone https://github.com/xqcd77/jianxing.git
 cd jianxing
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install -e ".[dev]"
-Copy-Item .env.example .env
-.\start.ps1
+python run.py
 ```
 
-打开http://127.0.0.1:8000。演示账户demo、wang、li，密码均为DemoBank!2026。初始主账户余额为0，可用演示工具模拟入金。本机地址需先启动服务，不能当公网体验链接。
+打开 http://127.0.0.1:8000 。端口占用时使用 `python run.py --port 8001`。演示账户demo、wang、li，密码均为DemoBank!2026。初始主账户余额为0，可用演示工具模拟入金。本机地址需先启动服务，不能当公网体验链接。
 
 真实模型在.env设置BANK_MODEL_MODE=llm并配置自己的Key，或在模型选择器配置。语义Embedding需准备BGE缓存，默认lexical模式不等于语义检索效果。具体步骤、Docker及常见问题见[部署说明](docs/deployment.md)。默认本地运行，不输入真实金融凭证。
 
 ## 十五页项目介绍
 
-下面15张图全部由最终可编辑PPT导出，按答辩顺序分组。展开即可逐页阅读，原始PPT与PDF可在[交付版本](https://github.com/xqcd77/jianxing/releases/tag/submission-2026.10.29)下载。
+下面15张图全部由最终可编辑PPT导出，按项目内容分组。展开即可逐页阅读，原始PPT与PDF可在[项目版本](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
 
 <details>
 <summary>01—03 项目定位、用户问题与系统架构</summary>
@@ -236,7 +251,7 @@ Copy-Item .env.example .env
 </details>
 
 <details>
-<summary>13—15 会话与模型、评测标准与交付结果</summary>
+<summary>13—15 会话与模型、评测标准与工程材料</summary>
 
 ![第13页](docs/assets/slides/13.webp)
 
@@ -247,29 +262,19 @@ Copy-Item .env.example .env
 </details>
 
 
-## 交付材料
+## 项目资料
 
-四个主文件夹分别对应必交要求，没有旧版PPT或中间汇总表。
+架构海报、算法与安全说明、15页项目介绍和完整源码，可在[项目版本](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
 
 ```text
-简行_参赛交付材料/
-├─01_技术文档/
-│  ├─01_架构图_POSTER/              作者提供的最终海报
-│  ├─02_算法说明/                   算法说明PDF
-│  └─03_安全设计/                   安全设计PDF
-├─02_答辩PPT/                        15页可编辑PPT与PDF预览
-├─03_源代码/                         完整仓库快照
-│  ├─README.md与仓库地址.txt
-│  ├─docs/deployment.md              部署说明
-│  ├─docs/testing.md                 测试说明
-│  ├─tests/                         自动化测试用例
-│  └─evaluation/                    题集与冻结评分记录
-└─04_安全自评/
-   ├─01_权限分级说明/               实现说明与核查证据
-   └─02_已知风险清单/               剩余风险及处理建议
+简行_项目资料/
+├─01_技术文档/             架构海报、算法说明、安全设计
+├─02_项目演示/             15页可编辑PPT与PDF
+├─03_源代码/               README、部署命令、测试与评测记录
+└─04_安全自评/             权限分级、已知风险
 ```
 
-[下载完整交付包](https://github.com/xqcd77/jianxing/releases/tag/submission-2026.10.29) · [完整文档](docs/README.md) · [9分30秒演示安排](docs/demo.md)
+[完整文档](docs/README.md) · [功能演示流程](docs/walkthrough.md)
 
 ## 代码目录
 
@@ -279,8 +284,7 @@ tests/          自动化回归用例
 evaluation/     当前66题 继承题集 评测器与冻结记录
 scripts/        评测 运行准备和界面验证工具
 docs/           架构 算法 部署 安全 自评与展示图片
-docker/         可选容器辅助
 .github/        持续集成检查
 ```
 
-评测器仍依赖48题、58题等继承数据及历史基线，保留这些文件是为了复算与回归。旧开发笔记、重复截图、已替换的海报和10页答辩已从当前版本移除。源码供作品评审，字体与厂标按各自许可使用；本项目未额外授予开源许可。已知安全边界见[风险清单](docs/known-risks.md)。
+评测器仍依赖48题、58题等继承数据及历史基线，保留这些文件是为了复算与回归。字体与厂标按各自许可使用；本项目未额外授予开源许可。已知安全边界见[风险清单](docs/known-risks.md)。

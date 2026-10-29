@@ -5,7 +5,7 @@
   "skipped": 4,
   "passed": 1100,
   "date": "2026-10-29",
-  "scope": "current cleaned public source offline regression",
+  "scope": "offline application regression on 2026-10-29; project documentation and launcher checked separately",
   "ruff": "passed",
   "typescript": "both configs passed",
   "new_paid_model_run": false

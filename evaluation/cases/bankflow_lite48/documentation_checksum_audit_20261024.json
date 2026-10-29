@@ -27,5 +27,14 @@
     "selection_audit.json": "ff45d1be792452d12e8bfc802998d01291abef4be8da022569e728bbe1b29ad2",
     "覆盖矩阵.md": "5e6fd6ad127b0947bb39e81e24ea8d43f0c994c4ae84d772d023c34cc3c373a9",
     "评分与节费说明.md": "6dce3ac12a14b7b7d416162a332129b35265bc170807b8fb64d595c7727b3923"
-  }
+  },
+  "subsequent_documentation_edits": [
+    {
+      "date": "2026-10-29",
+      "file": "README.md",
+      "reason": "Neutral project wording update; tasks, gold and scores unchanged.",
+      "before_sha256": "fd41520022dde4fe9a810b67cc7a3fe86a1c77adc8cef85ff3809bce9801523e",
+      "after_sha256": "ff2cc882d755e94ed5345fee5ec50d6f31b8fbfcefe4de9872197ecdc9213bf2"
+    }
+  ]
 }
