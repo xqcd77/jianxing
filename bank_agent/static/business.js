@@ -150,7 +150,7 @@ export async function openBusinessAction(category,item,options={resumePlanId:nul
         for(const [score,answer] of answers.entries()){const option=el('option',answer);option.value=String(score+1);input.append(option);}
         row.append(input);label.append(row);inputs.push(input);
       }
-      label.append(el('small','竞赛模拟问卷，五题均需本人回答；不代表银行正式风险测评。'));
+      label.append(el('small','沙箱模拟问卷，五题均需本人回答；不代表银行正式风险测评。'));
       readers.push([spec.name,()=>inputs.map(input=>Number(input.value))]);
     }else if(spec.kind==='multi'){
       const choices=el('div',undefined,'business-checkboxes'),inputs=[];

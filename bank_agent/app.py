@@ -16,6 +16,7 @@ from .agents import ROLES, SCENARIOS
 from .deep_banking import DeepPlannerAgent as PlannerAgent, DeepBankingGraph as BankingGraph
 from .businesses import BusinessRequest, BusinessService
 from .information import information_intent
+from . import __version__
 from .config import Settings
 from .harness import BankAgentHarness
 from .runtime_middleware import RuntimeMiddleware
@@ -180,7 +181,7 @@ def create_app(settings=None):
         planner.memory.close()
         db.engine.dispose()
 
-    app = FastAPI(title="简行 · 一句话简化银行办理", version="0.1.0", lifespan=lifespan)
+    app = FastAPI(title="简行 · 一句话简化银行办理", version=__version__, lifespan=lifespan)
     app.add_middleware(RuntimeMiddleware, telemetry=harness.telemetry)
     app.state.db, app.state.auth, app.state.bank = db, auth, bank
     app.state.plans, app.state.graph, app.state.events, app.state.settings = plans, graph, events, settings

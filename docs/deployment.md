@@ -76,7 +76,7 @@ docker compose logs -f web worker
 docker compose down
 ```
 
-`down` 停止服务并保留数据卷。当前开发环境未安装 Docker，本轮已检查配置与服务关系，本机 Python 部署已实际启动验证。
+`down` 停止服务并保留数据卷。Docker配置已进行静态检查，尚未完成容器运行时验证；本机Python启动路径有独立验证记录。
 
 ## 5 开发检查
 

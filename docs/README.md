@@ -10,4 +10,4 @@
 | 已知问题与边界 | [风险清单](known-risks.md) |
 | 功能演示顺序 | [演示流程](walkthrough.md) |
 
-架构海报、15页项目介绍和源码可从[项目版本](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载，界面与逐页预览见[项目首页](../README.md)。
+合并技术文档、安全自评、15页项目介绍、操作视频和源码可从[项目下载](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载，界面与逐页预览见[项目首页](../README.md)。

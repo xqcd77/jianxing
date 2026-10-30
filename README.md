@@ -12,7 +12,7 @@ OpenAI Agents SDK · LangGraph · ChromaDB · FastAPI
 
 </div>
 
-简行针对手机银行入口分散、组合业务步骤长、金融分析缺少依据的问题，提供**直接办理＋Deep Research**两条路径，在合成金融沙箱覆盖**6类场景、31项主菜单入口**。明确操作组织为可核对的计划，复杂问题先取证比较；用户选择方案后，再进入确认、授权和办理。
+简行面向手机银行入口分散、组合业务链路长和分析依据不足的问题，基于OpenAI Agents SDK、LangGraph与ChromaDB，构建融合多智能体协作和深度研究的银行智能体原型。系统在金融沙箱中覆盖6类场景、31项业务入口，支持自然语言拆解任务、证据回查、分级授权及中断续办，衔接分析、选择、确认与办理回执。
 
 ![简行工作台](docs/assets/screenshots/workspace.webp)
 
@@ -184,7 +184,7 @@ flowchart TD
 
 22个执行任务中3个条件不符、2个能力缺口没有完成交易。五维权重为任务覆盖2、业务正确性2、证据推理1、可执行性1、表达清晰度1，N/A不补满分。
 
-保留两项失败：基金续问的分项条款回应不完整；会员按月付条件已保存但未明确展示。题集参与开发、每题单次执行，本轮未重跑Single-Agent；不把旧版本提升数字用于当前结果，也不表示生产可靠性。
+保留两项失败：基金续问的分项条款回应不完整；会员按月付条件已保存但未明确展示。题集用于开发，每题执行一次；该冻结结果未同步重跑Single-Agent，因此不作架构提升比较，也不代表生产可靠性。
 
 [结果与口径](docs/evaluation.md) · [冻结逐题记录](evaluation/published/bankflow_lite66_20261028/) · [测试及复现](docs/testing.md)
 
@@ -202,9 +202,13 @@ python run.py
 
 真实模型在.env设置BANK_MODEL_MODE=llm并配置自己的Key，或在模型选择器配置。语义Embedding需准备BGE缓存，默认lexical模式不等于语义检索效果。具体步骤、Docker及常见问题见[部署说明](docs/deployment.md)。默认本地运行，不输入真实金融凭证。
 
+## 实际操作视频
+
+[观看约4分10秒的功能演示](https://github.com/xqcd77/jianxing/releases/download/v0.1.1/jianxing-feature-walkthrough.mp4)。从登录开始，展示组合转账、分级验证、账单、卡片、续费提醒、研究报告、证据回查及模型配置，配有中文女声和字幕。
+
 ## 十五页项目介绍
 
-下面15张图全部由最终可编辑PPT导出，按项目内容分组。展开即可逐页阅读，原始PPT与PDF可在[项目版本](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
+下面15张图全部由最终可编辑PPT导出，按项目内容分组。展开即可逐页阅读，原始PPT与PDF可在[项目下载](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
 
 <details>
 <summary>01—03 项目定位、用户问题与系统架构</summary>
@@ -264,14 +268,15 @@ python run.py
 
 ## 项目资料
 
-架构海报、算法与安全说明、15页项目介绍和完整源码，可在[项目版本](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
+合并后的技术文档、安全自评、15页项目介绍、实际操作视频和完整源码，可在[项目下载](https://github.com/xqcd77/jianxing/releases/tag/v0.1.1)下载。
 
 ```text
 简行_项目资料/
-├─01_技术文档/             架构海报、算法说明、安全设计
-├─02_项目演示/             15页可编辑PPT与PDF
+├─01_技术文档/             一份PDF：架构海报、算法说明、安全设计
+├─02_项目演示/             15页可编辑PPT
 ├─03_源代码/               README、部署命令、测试与评测记录
-└─04_安全自评/             权限分级、已知风险
+├─04_安全自评/             一份PDF：权限分级说明、已知风险清单
+└─05_演示视频/             约4分10秒，含女声讲解与中文字幕
 ```
 
 [完整文档](docs/README.md) · [功能演示流程](docs/walkthrough.md)

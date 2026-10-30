@@ -4,8 +4,8 @@
   "errors": 0,
   "skipped": 4,
   "passed": 1100,
-  "date": "2026-10-29",
-  "scope": "offline application regression on 2026-10-29; project documentation and launcher checked separately",
+  "date": "2026-10-30",
+  "scope": "offline business regression; final wording and version metadata validated by UI and API smoke checks",
   "ruff": "passed",
   "typescript": "both configs passed",
   "new_paid_model_run": false

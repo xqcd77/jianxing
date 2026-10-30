@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "targeted_tests": 103,
   "failures": 0,
   "launcher_started": true,
@@ -13,5 +13,6 @@
   "obsolete_ui_scripts_removed": 19,
   "obsolete_analysis_dockerfile_removed": true,
   "new_paid_model_run": false,
-  "docker_runtime_tested": false
+  "docker_runtime_tested": false,
+  "api_version": "0.1.1"
 }

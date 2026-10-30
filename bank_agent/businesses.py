@@ -289,7 +289,7 @@ BUSINESSES = [
                 "subscriptions.detect",
             ),
             action(
-                "query", "查看订阅与代扣合同", "核对本人合同详情；按赛题权限要求先确认再查询。", "subscriptions.query"
+                "query", "查看订阅与代扣合同", "核对本人合同详情；此类信息查询先确认，再按权限读取。", "subscriptions.query"
             ),
             action(
                 "cancel",
